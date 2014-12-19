@@ -8,10 +8,11 @@ SETTINGS_OBJ = write_module_settings.write_module_settings();
 class colorcheck():
     def __init__(self):
         # Do nothing
-        self.root="C:\\Users\\bryantay\\Dev\\imatest\\"
+        self.root="C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\imatest\\"
         self.imagename = 'C:\\Users\\bryantay\\Dev\\images\\test_example\\macbeth_daylight.jpg'
         
     def run(self):    
+        
         # write ini file
         SETTINGS_OBJ.root_directory = os.path.join(self.root,"lib")
         SETTINGS_OBJ.out_file_name="colour_check.ini"
