@@ -12,7 +12,7 @@ Test cases for checking the basic messaging functionality of a baseband board.
 """
 import read_colourcheck_keyresults
 import unittest
-read_OBJ = read_colourcheck_keyresults.read_colourcheck_keyresults('C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/Results/example.json');
+read_OBJ = read_colourcheck_keyresults.read_colourcheck_keyresults('C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_daylight.json');
 read_OBJ.run()
 
 class TESTS_COLORCHECK(unittest.TestCase):
@@ -72,8 +72,6 @@ class TESTS_COLORCHECK(unittest.TestCase):
     def test_Noise(self):
         self.assertTrue(0 <= read_OBJ.Mean_White_Balance_delta_C <= 5,
                         "wb_detlaC is too large")
-
-
 
 # The following is one way of running the tests
 if __name__ == '__main__':
