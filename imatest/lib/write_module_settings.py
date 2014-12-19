@@ -1,11 +1,12 @@
 import ConfigParser
+import os
 Config = ConfigParser.ConfigParser();
 
 class write_module_settings:
     def __init__(self):
         self.out_file_name = "colour_check.ini"
         self.default_file_name  = "default_colour_check.ini"
-        self.root_directory = "C:/Users/bryantay/Desktop/sample images/"
+        self.root_directory = "C:\\Users\\bryantay\\Desktop\\sample images\\"
         
         # Variables
         #self.api__disable_figs = 1
@@ -19,8 +20,11 @@ class write_module_settings:
         self.colorcheck__savexml = 1
 
     def run(self):
-        self.cfgfile = open(self.root_directory + self.out_file_name, 'wb')
-        Config.read(self.root_directory + self.default_file_name)
+        
+        print "File to write: " + os.path.join(self.root_directory,self.out_file_name)
+        print "File to read: " + os.path.join(self.root_directory,self.default_file_name)
+        self.cfgfile = open( os.path.join(self.root_directory,self.out_file_name), 'wb')
+        Config.read( os.path.join(self.root_directory,self.default_file_name) )
         
         #Config.set('api','disable_figs',self.api__disable_figs)
         Config.set('colorcheck','figsave',self.colorcheck__figsave)
