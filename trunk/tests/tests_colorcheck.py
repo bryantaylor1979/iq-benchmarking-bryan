@@ -36,7 +36,7 @@ class TESTS_COLORCHECK(unittest.TestCase):
         self.test_limits = test_limits
         
         self.targets = "D65"
-        self.min_sat = 100
+        self.min_sat = 95
         self.max_sat = 125
         self.wb_deltaC_max = 5
         self.color_deltaC_max = 10
@@ -50,19 +50,32 @@ class TESTS_COLORCHECK(unittest.TestCase):
         """
 
     def test_color_saturation(self):
+        print "COLOUR SATURATION TEST"
+        print "======================"
         print "color saturation range: [" + str(self.min_sat) + " " + str(self.max_sat) + "]"
         print "color saturation measured: " + str(read_OBJ.mean_cameraSat_Pct)
         self.assertTrue(self.min_sat < read_OBJ.mean_cameraSat_Pct < self.max_sat,
                         "saturation target has not been met")
+        print " "
                         
     def test_wb_DeltaC_error(self):
+        print "WB Delta"
+        print "========"
+        print "WB Max Delta C: " + str(self.wb_deltaC_max)
+        print "White balance measured: " + str(read_OBJ.Mean_White_Balance_delta_C)
         self.assertTrue(0 <= read_OBJ.Mean_White_Balance_delta_C <= self.wb_deltaC_max,
                         "wb_detlaC is too large")
+        print " "
                         
     def test_color_DeltaC_error(self):
+        print "Color Error Delta"
+        print "================="
+        print "Color Max Delta C: " + str(self.color_deltaC_max)
+        print "Color error measured: " + str(read_OBJ.Mean_Delta_C)
         self.assertTrue(0 <= read_OBJ.Mean_Delta_C <= self.color_deltaC_max,
                         "colour error is too large")
-                        
+        print " "
+                       
     @unittest.skip("Skin check not yet implemented")
     def test_skinTone_error(self):
         self.assertTrue(0 <= read_OBJ.Mean_White_Balance_delta_C <= 5,

@@ -9,7 +9,7 @@ class colorcheck():
     def __init__(self):
         # Do nothing
         self.root="C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\imatest\\"
-        self.imagename = 'C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\images\\test_example\\macbeth_daylight.jpg'
+        self.imagename='C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\images\\test_example\\macbeth_daylight.jpg'
         
     def run(self):    
         
