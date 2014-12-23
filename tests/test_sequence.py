@@ -59,8 +59,8 @@ class TestSuite():
          limits.filename = self.Root + '/Results/' + 'macbeth_u30.json'
          self.loadtests(limits);
          
-         result = unittest.TestResult();
-         testRunner=xmlrunner.XMLTestRunner(output='test-reports')
+         result=unittest.TestResult();
+         testRunner=xmlrunner.XMLTestRunner(output='test-reports');
          testRunner.run(self.suite)
          print 'my os.getcwd =>', os.getcwd( ) 
          os.chmod('test-reports', 0o777) #stat.S_IREAD
