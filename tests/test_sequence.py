@@ -17,6 +17,7 @@ class TestSuite():
          self.Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
          self.loader = unittest.TestLoader();
          self.suite = unittest.TestSuite();
+		 self.limits = test_limits(); 
          
      def loadtests(self,test_limits=None):                       
          tests = (        tests_colorcheck.TESTS_COLORCHECK, 
@@ -42,29 +43,27 @@ class TestSuite():
                 self.suite.addTest(test_module(test,test_limits)) 
                           
      def RUN(self):  
-         limits = test_limits();
-         
-         limits.filename = self.Root + '/Results/' + 'macbeth_daylight.json'
-         self.loadtests(limits);
+         self.limits.filename = self.Root + '/Results/' + 'macbeth_daylight.json'
+         self.loadtests(self.limits);
 
-         limits.filename = self.Root + '/Results/' + 'macbeth_cwf.json'
-         self.loadtests(limits);
+         self.limits.filename = self.Root + '/Results/' + 'macbeth_cwf.json'
+         self.loadtests(self.limits);
 
-         limits.filename = self.Root + '/Results/' + 'macbeth_horizon.json'
-         self.loadtests(limits);
+         self.limits.filename = self.Root + '/Results/' + 'macbeth_horizon.json'
+         self.loadtests(self.limits);
 
-         limits.filename = self.Root + '/Results/' + 'macbeth_inc.json'
-         self.loadtests(limits);
+         self.limits.filename = self.Root + '/Results/' + 'macbeth_inc.json'
+         self.loadtests(self.limits);
 
-         limits.filename = self.Root + '/Results/' + 'macbeth_u30.json'
-         self.loadtests(limits);
+         self.limits.filename = self.Root + '/Results/' + 'macbeth_u30.json'
+         self.loadtests(self.limits);
          
          #result=unittest.TestResult();
-         print "Test results path: " + os.path.join(self.Root,'test-reports')
-         testRunner=xmlrunner.XMLTestRunner(output=os.path.join(self.Root,'test-reports'));
+		 test_path = os.path.join(self.Root,'test-reports');
+         print "Test results path: " + test_path
+         testRunner=xmlrunner.XMLTestRunner(output=test_path);
          testRunner.run(self.suite)
-         print 'my os.getcwd =>', os.getcwd( ) 
-         os.chmod('test-reports', 0o777) #stat.S_IREAD
+         os.chmod(test_path, 0o777) #stat.S_IREAD
        
 # The following is one way of running the tests
 if __name__ == '__main__':
