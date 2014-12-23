@@ -43,15 +43,15 @@ class TESTS_COLORCHECK(unittest.TestCase):
         """
 
     def test_color_saturation(self):
-        string = "COLOUR SATURATION TEST\n"
+        string = "\nCOLOUR SATURATION TEST\n"
         string = string + "======================"
-        print "color saturation range: [" + str(self.min_sat) + " " + str(self.max_sat) + "]"
-        print "color saturation measured: " + str(self.read_OBJ.mean_cameraSat_Pct)
+        string = string + "color saturation range: [" + str(self.min_sat) + " " + str(self.max_sat) + "]\n"
+        string = string + "color saturation measured: " + str(self.read_OBJ.mean_cameraSat_Pct) + "\n"
         if (self.min_sat < self.read_OBJ.mean_cameraSat_Pct < self.max_sat):
-             print "result:  PASS"
+             string = string +  "result:  PASS\n"
         else:
-             print "result:  FAIL"
-             print "comment: Saturation target has not been met"            
+             string = string +  "result:  FAIL\n"
+             string = string +  "comment: Saturation target has not been met\n"            
         self.assertTrue(self.min_sat < self.read_OBJ.mean_cameraSat_Pct < self.max_sat,
                         string)
         print " "
