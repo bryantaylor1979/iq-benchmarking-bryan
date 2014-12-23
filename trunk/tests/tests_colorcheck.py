@@ -89,6 +89,12 @@ class TESTS_COLORCHECK(unittest.TestCase):
     def test_Noise(self):
         self.assertTrue(0 <= self.read_OBJ.Mean_White_Balance_delta_C <= 5,
                         "wb_detlaC is too large")
+						
+    @unittest.skip("black level check not yet implemented")
+    def test_BlackLevel(self):
+	    # Looks at how tight the cluster is on the grey patches. 
+        self.assertTrue(0 <= self.read_OBJ.Mean_White_Balance_delta_C <= 5,
+                        "wb_detlaC is too large")
 
 # The following is one way of running the tests
 if __name__ == '__main__':
