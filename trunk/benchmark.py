@@ -15,15 +15,13 @@ class benchmark():
         # Do nothing
         self.root="C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\"
         #self.root="C:\\Users\\bryantay\\Dev\\"
-        self.projectname = 'test_example'
         
     def run(self):    
         # Params
         CC_OBJ.root=self.root;
-        CC_OBJ.projectname=self.projectname;
         CC_OBJ.run();
         
-        TEST_OBJ.Root =os.path.join(self.root,"images",self.projectname)
+        TEST_OBJ.Root =os.path.join(self.root,"images")
         TEST_OBJ.RUN();
         
 if __name__ == "__main__":
