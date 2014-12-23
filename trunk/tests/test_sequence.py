@@ -17,7 +17,7 @@ class TestSuite():
          self.Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
          self.loader = unittest.TestLoader();
          self.suite = unittest.TestSuite();
-		 self.limits = test_limits(); 
+         self.limits = test_limits(); 
          
      def loadtests(self,test_limits=None):                       
          tests = (        tests_colorcheck.TESTS_COLORCHECK, 
