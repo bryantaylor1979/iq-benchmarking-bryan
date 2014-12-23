@@ -43,15 +43,8 @@ class TESTS_COLORCHECK(unittest.TestCase):
         """
 
     def test_color_saturation(self):
-        string = "\nCOLOUR SATURATION TEST\n"
-        string = string + "======================"
-        string = string + "color saturation range: [" + str(self.min_sat) + " " + str(self.max_sat) + "]\n"
-        string = string + "color saturation measured: " + str(self.read_OBJ.mean_cameraSat_Pct) + "\n"
-        if (self.min_sat < self.read_OBJ.mean_cameraSat_Pct < self.max_sat):
-             string = string +  "result:  PASS\n"
-        else:
-             string = string +  "result:  FAIL\n"
-             string = string +  "comment: Saturation target has not been met\n"            
+  
+        string = self.buildString('',self.min_sat,self.max_sat,self.read_OBJ.mean_cameraSat_Pct);     
         self.assertTrue(self.min_sat < self.read_OBJ.mean_cameraSat_Pct < self.max_sat,
                         string)
         print " "
@@ -73,6 +66,18 @@ class TESTS_COLORCHECK(unittest.TestCase):
         self.assertTrue(0 <= self.read_OBJ.Mean_Delta_C <= self.color_deltaC_max,
                         "colour error is too large")
         print " "
+        
+    def buildString(self,param_name,min_val,max_val,val):
+        string = "\nCOLOUR SATURATION TEST\n"
+        string = string + "======================"
+        string = string + "color saturation range: [" + str(min_val) + " " + str(max_val) + "]\n"
+        string = string + "color saturation measured: " + str(val) + "\n"
+        if (min_val < val < max_val):
+             string = string +  "result:  PASS\n"
+        else:
+             string = string +  "result:  FAIL\n"
+             string = string +  "comment: Saturation target has not been met\n" 
+        return string
                        
     @unittest.skip("Skin check not yet implemented")
     def test_skinTone_error(self):
