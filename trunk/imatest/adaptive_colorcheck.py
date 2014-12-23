@@ -6,6 +6,7 @@ Created on Tue Dec 23 10:59:51 2014
 """
 
 import colorcheck
+import os
 CC_OBJ = colorcheck.colorcheck()
 
 class adaptive_colorcheck():
@@ -13,11 +14,10 @@ class adaptive_colorcheck():
         # Do nothing
         self.root="C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\"
         #self.root="C:\\Users\\bryantay\\Dev\\"
-        self.projectname = 'test_example'
         
     def process_image(self,imagename):
-        CC_OBJ.root = self.root+'imatest\\'
-        CC_OBJ.imagename=self.root+'images\\'+self.projectname+'\\'+imagename
+        CC_OBJ.root = os.path.join(self.root,'imatest')
+        CC_OBJ.imagename=os.path.join(self.root,'images')+imagename
         CC_OBJ.run();  
         
     def run(self):    
