@@ -86,30 +86,30 @@ class TestSuite():
          self.loadtests(limits);
 
          limits.filename = self.Root + '/Results/' + 'macbeth_' + self.limits.Lum1_name + '.json'
-         limits.colorcheck_min_sat = self.limits.Lum1_colorcheck_min_sat
-         limits.colorcheck_max_sat = self.limits.Lum1_colorcheck_max_sat
-         limits.colorcheck_wb_deltaC_max = self.limits.Lum1_colorcheck_wb_deltaC_max
+         limits.colorcheck_min_sat =          self.limits.Lum1_colorcheck_min_sat
+         limits.colorcheck_max_sat =          self.limits.Lum1_colorcheck_max_sat
+         limits.colorcheck_wb_deltaC_max =    self.limits.Lum1_colorcheck_wb_deltaC_max
          limits.colorcheck_color_deltaC_max = self.limits.Lum1_colorcheck_color_deltaC_max
          self.loadtests(limits);
 
          limits.filename = self.Root + '/Results/' + 'macbeth_' + self.limits.Lum2_name + '.json'
-         limits.colorcheck_min_sat = self.limits.Lum2_colorcheck_min_sat
-         limits.colorcheck_max_sat = self.limits.Lum2_colorcheck_max_sat
-         limits.colorcheck_wb_deltaC_max = self.limits.Lum2_colorcheck_wb_deltaC_max
+         limits.colorcheck_min_sat =          self.limits.Lum2_colorcheck_min_sat
+         limits.colorcheck_max_sat =          self.limits.Lum2_colorcheck_max_sat
+         limits.colorcheck_wb_deltaC_max =    self.limits.Lum2_colorcheck_wb_deltaC_max
          limits.colorcheck_color_deltaC_max = self.limits.Lum2_colorcheck_color_deltaC_max
          self.loadtests(limits);
 
          limits.filename = self.Root + '/Results/' + 'macbeth_' + self.limits.Lum3_name + '.json'
-         limits.colorcheck_min_sat = self.limits.Lum3_colorcheck_min_sat
-         limits.colorcheck_max_sat = self.limits.Lum3_colorcheck_max_sat
-         limits.colorcheck_wb_deltaC_max = self.limits.Lum3_colorcheck_wb_deltaC_max
+         limits.colorcheck_min_sat =          self.limits.Lum3_colorcheck_min_sat
+         limits.colorcheck_max_sat =          self.limits.Lum3_colorcheck_max_sat
+         limits.colorcheck_wb_deltaC_max =    self.limits.Lum3_colorcheck_wb_deltaC_max
          limits.colorcheck_color_deltaC_max = self.limits.Lum3_colorcheck_color_deltaC_max
          self.loadtests(limits);
 
          limits.filename = self.Root + '/Results/' + 'macbeth_' + self.limits.Lum4_name + '.json'
-         limits.colorcheck_min_sat = self.limits.Lum4_colorcheck_min_sat
-         limits.colorcheck_max_sat = self.limits.Lum4_colorcheck_max_sat
-         limits.colorcheck_wb_deltaC_max = self.limits.Lum4_colorcheck_wb_deltaC_max
+         limits.colorcheck_min_sat =          self.limits.Lum4_colorcheck_min_sat
+         limits.colorcheck_max_sat =          self.limits.Lum4_colorcheck_max_sat
+         limits.colorcheck_wb_deltaC_max =    self.limits.Lum4_colorcheck_wb_deltaC_max
          limits.colorcheck_color_deltaC_max = self.limits.Lum4_colorcheck_color_deltaC_max
          self.loadtests(limits);
          
