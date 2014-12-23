@@ -6,7 +6,7 @@ import os
 class adaptive_colorcheck_test_limits(object):
     def __init__(self):
          # daylight
-		 self.Lum0_name = 'daylight'
+         self.Lum0_name = 'daylight'
          self.Lum0_colorcheck_min_sat = 98
          self.Lum0_colorcheck_max_sat = 125
          self.Lum0_colorcheck_wb_deltaC_max = 5
