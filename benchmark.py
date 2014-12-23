@@ -18,11 +18,11 @@ class benchmark():
         
     def run(self):    
         # Params
-        CC_OBJ.root=self.root
-        CC_OBJ.projectname=self.projectname
-        CC_OBJ.run()
+        CC_OBJ.root=self.root;
+        CC_OBJ.projectname=self.projectname;
+        CC_OBJ.run();
         
-        #TEST_OBJ.Root ='C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
+        TEST_OBJ.Root ='C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
         TEST_OBJ.RUN();
         
 if __name__ == "__main__":
