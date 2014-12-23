@@ -30,5 +30,5 @@ class adaptive_colorcheck():
         
 if __name__ == "__main__":
     obj = adaptive_colorcheck()
-    obj.root="C:\\Users\\bryantay\\Dev\\"
+    #obj.root="C:\\Users\\bryantay\\Dev\\"
     obj.run();
