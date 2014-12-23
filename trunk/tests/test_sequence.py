@@ -59,7 +59,8 @@ class TestSuite():
          limits.filename = self.Root + '/Results/' + 'macbeth_u30.json'
          self.loadtests(limits);
          
-         result=unittest.TestResult();
+         #result=unittest.TestResult();
+		 print "Test results path: " + os.join(self.Root,'test-reports')
          testRunner=xmlrunner.XMLTestRunner(output=os.join(self.Root,'test-reports'));
          testRunner.run(self.suite)
          print 'my os.getcwd =>', os.getcwd( ) 
