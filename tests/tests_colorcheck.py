@@ -25,11 +25,18 @@ class TESTS_COLORCHECK(unittest.TestCase):
         super(TESTS_COLORCHECK, self).__init__(methodName)
         
         #self.targets = "D65"
-        self.filename = test_limits.filename;
-        self.min_sat = test_limits.colorcheck_min_sat;
-        self.max_sat = test_limits.colorcheck_max_sat;
-        self.wb_deltaC_max = test_limits.colorcheck_wb_deltaC_max;
-        self.color_deltaC_max = test_limits.colorcheck_color_deltaC_max;
+        if test_limits==None:
+             self.filename = 'C:/Users/bryantay/Dev/images/test_example/Results/macbeth_daylight.json'
+             self.min_sat = 98
+             self.max_sat = 125
+             self.wb_deltaC_max = 5
+             self.color_deltaC_max = 10
+        else:
+             self.filename = test_limits.filename;
+             self.min_sat = test_limits.colorcheck_min_sat;
+             self.max_sat = test_limits.colorcheck_max_sat;
+             self.wb_deltaC_max = test_limits.colorcheck_wb_deltaC_max;
+             self.color_deltaC_max = test_limits.colorcheck_color_deltaC_max;                
 
         self.read_OBJ = read_colourcheck_keyresults.read_colourcheck_keyresults(self.filename);
         self.read_OBJ.run();
@@ -43,34 +50,27 @@ class TESTS_COLORCHECK(unittest.TestCase):
         """
 
     def test_color_saturation(self):
-  
-        string = self.buildString('',self.min_sat,self.max_sat,self.read_OBJ.mean_cameraSat_Pct);     
+        string = self.buildString('color saturation',self.min_sat,self.max_sat,self.read_OBJ.mean_cameraSat_Pct);     
         self.assertTrue(self.min_sat < self.read_OBJ.mean_cameraSat_Pct < self.max_sat,
                         string)
         print " "
                         
     def test_wb_DeltaC_error(self):
-        print "WB Delta"
-        print "========"
-        print "WB Max Delta C: " + str(self.wb_deltaC_max)
-        print "White balance measured: " + str(self.read_OBJ.Mean_White_Balance_delta_C)
+        string = self.buildString('white balance DeltaC',0,self.wb_deltaC_max,self.read_OBJ.Mean_White_Balance_delta_C);     
         self.assertTrue(0 <= self.read_OBJ.Mean_White_Balance_delta_C <= self.wb_deltaC_max,
-                        "wb_detlaC is too large")
+                        string)
         print " "
                         
     def test_color_DeltaC_error(self):
-        print "Color Error Delta"
-        print "================="
-        print "Color Max Delta C: " + str(self.color_deltaC_max)
-        print "Color error measured: " + str(self.read_OBJ.Mean_Delta_C)
+        string = self.buildString('color DeltaC',0,self.color_deltaC_max,self.read_OBJ.Mean_Delta_C);     
         self.assertTrue(0 <= self.read_OBJ.Mean_Delta_C <= self.color_deltaC_max,
-                        "colour error is too large")
+                        string)
         print " "
         
     def buildString(self,param_name,min_val,max_val,val):
         string = "\n\n" + param_name.upper() + " TEST\n"
         string = string + "======================\n"
-        string = string + "image name: " + self.filename
+        string = string + "image name: " + self.filename + "\n"
         string = string + param_name.lower() + " range: [" + str(min_val) + " " + str(max_val) + "]\n"
         string = string + param_name.lower() + " measured: " + str(val) + "\n"
         if (min_val < val < max_val):
