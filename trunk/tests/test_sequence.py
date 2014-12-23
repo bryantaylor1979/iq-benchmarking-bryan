@@ -30,7 +30,7 @@ class adaptive_colorcheck_test_limits(object):
          self.Lum3_colorcheck_wb_deltaC_max = 5
          self.Lum3_colorcheck_color_deltaC_max = 10
 		 
-         slef.Lum4_name = 'u30'
+         self.Lum4_name = 'u30'
          self.Lum4_colorcheck_min_sat = 98
          self.Lum4_colorcheck_max_sat = 125
          self.Lum4_colorcheck_wb_deltaC_max = 5
