@@ -68,5 +68,5 @@ class TestSuite():
 # The following is one way of running the tests
 if __name__ == '__main__':
     obj = TestSuite();
-    obj.Root = 'C://Users//bryantay//Dev//images//test_example//'
+    #obj.Root = 'C://Users//bryantay//Dev//images//test_example//'
     obj.RUN();
