@@ -27,5 +27,5 @@ class benchmark():
         
 if __name__ == "__main__":
     obj = benchmark();
-    obj.root="C:\\Users\\bryantay\\Dev\\"
+    #obj.root="C:\\Users\\bryantay\\Dev\\"
     obj.run();
