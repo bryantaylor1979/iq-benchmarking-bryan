@@ -38,7 +38,7 @@ class adaptive_colorcheck_test_limits(object):
 		 
 class colorcheck_test_limits(object):
     def __init__(self):		 
-		 self.filename = '';
+         self.filename = '';
          self.colorcheck_min_sat = 98
          self.colorcheck_max_sat = 125
          self.colorcheck_wb_deltaC_max = 5
