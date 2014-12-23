@@ -10,6 +10,14 @@ import os
 CC_OBJ = adaptive_colorcheck.adaptive_colorcheck();
 TEST_OBJ = test_sequence.TestSuite();
 
+class test_limits(object):
+    def __init__(self):
+         # for test
+         self.colorcheck_min_sat = 98
+         self.colorcheck_max_sat = 125
+         self.colorcheck_wb_deltaC_max = 5
+         self.colorcheck_color_deltaC_max = 10
+
 class benchmark():
     def __init__(self):
         # Do nothing
@@ -22,6 +30,7 @@ class benchmark():
         CC_OBJ.run();
         
         TEST_OBJ.Root =os.path.join(self.root,"images")
+		TEST_OBJ.limits = test_limits();
         TEST_OBJ.RUN();
         
 if __name__ == "__main__":
