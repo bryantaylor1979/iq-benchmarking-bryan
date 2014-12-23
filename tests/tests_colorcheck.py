@@ -68,15 +68,16 @@ class TESTS_COLORCHECK(unittest.TestCase):
         print " "
         
     def buildString(self,param_name,min_val,max_val,val):
-        string = "\nCOLOUR SATURATION TEST\n"
-        string = string + "======================"
-        string = string + "color saturation range: [" + str(min_val) + " " + str(max_val) + "]\n"
-        string = string + "color saturation measured: " + str(val) + "\n"
+        string = "\n\n" + param_name.upper() + " TEST\n"
+        string = string + "======================\n"
+        string = string + "image name: " + self.filename
+        string = string + param_name.lower() + " range: [" + str(min_val) + " " + str(max_val) + "]\n"
+        string = string + param_name.lower() + " measured: " + str(val) + "\n"
         if (min_val < val < max_val):
              string = string +  "result:  PASS\n"
         else:
              string = string +  "result:  FAIL\n"
-             string = string +  "comment: Saturation target has not been met\n" 
+             string = string +  "comment: " + param_name.lower() + " target has not been met\n" 
         return string
                        
     @unittest.skip("Skin check not yet implemented")
