@@ -29,8 +29,8 @@ class benchmark():
         CC_OBJ.root=self.root;
         CC_OBJ.run();
         
-        TEST_OBJ.Root =os.path.join(self.root,"images")
-		TEST_OBJ.limits = test_limits();
+        TEST_OBJ.Root = os.path.join(self.root,"images")
+        TEST_OBJ.limits = test_limits();
         TEST_OBJ.RUN();
         
 if __name__ == "__main__":
