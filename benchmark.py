@@ -12,31 +12,35 @@ TEST_OBJ = test_sequence.TestSuite();
 
 class adaptive_colorcheck_test_limits(object):
     def __init__(self):
-         # daylight
+         # color matrix - daylight
          self.Lum0_name = 'daylight'
          self.Lum0_colorcheck_min_sat = 98
          self.Lum0_colorcheck_max_sat = 125
          self.Lum0_colorcheck_wb_deltaC_max = 5
          self.Lum0_colorcheck_color_deltaC_max = 10
 		 
+         # color matrix - cwf
          self.Lum1_name = 'cwf'
          self.Lum1_colorcheck_min_sat = 98
          self.Lum1_colorcheck_max_sat = 125
          self.Lum1_colorcheck_wb_deltaC_max = 5
          self.Lum1_colorcheck_color_deltaC_max = 10
 		 
+         # color matrix - horizon
          self.Lum2_name = 'horizon'
          self.Lum2_colorcheck_min_sat = 98
          self.Lum2_colorcheck_max_sat = 125
          self.Lum2_colorcheck_wb_deltaC_max = 5
          self.Lum2_colorcheck_color_deltaC_max = 10
 		 
+         # color matrix - inc
          self.Lum3_name = 'inc'
          self.Lum3_colorcheck_min_sat = 98
          self.Lum3_colorcheck_max_sat = 125
          self.Lum3_colorcheck_wb_deltaC_max = 5
          self.Lum3_colorcheck_color_deltaC_max = 10
 		 
+         # color matrix - u30
          self.Lum4_name = 'u30'
          self.Lum4_colorcheck_min_sat = 98
          self.Lum4_colorcheck_max_sat = 125
