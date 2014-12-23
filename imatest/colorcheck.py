@@ -10,7 +10,7 @@ class colorcheck():
         # Do nothing
         self.root="C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\imatest\\"
         #self.root="C:\\Users\\bryantay\\Dev\\imatest\\"
-        self.imagename='C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\images\\test_example\\macbeth_daylight.jpg'
+        self.imagename='C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\images\\macbeth_daylight.jpg'
         
     def run(self):    
         # params
@@ -29,5 +29,5 @@ class colorcheck():
 if __name__ == "__main__":
     obj = colorcheck()
     obj.root="C:\\Users\\bryantay\\Dev\\imatest\\"
-    obj.imagename='C:\\Users\\bryantay\\Dev\\images\\test_example\\macbeth_daylight.jpg'
+    obj.imagename='C:\\Users\\bryantay\\Dev\\images\\macbeth_daylight.jpg'
     obj.run();
