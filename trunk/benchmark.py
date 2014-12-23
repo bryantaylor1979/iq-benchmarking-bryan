@@ -6,6 +6,7 @@ Created on Tue Dec 23 10:59:51 2014
 """
 import imatest.adaptive_colorcheck as adaptive_colorcheck
 import tests.test_sequence as test_sequence
+import os
 CC_OBJ = adaptive_colorcheck.adaptive_colorcheck();
 TEST_OBJ = test_sequence.TestSuite();
 
