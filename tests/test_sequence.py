@@ -60,7 +60,7 @@ class TestSuite():
          self.loadtests(limits);
          
          #result=unittest.TestResult();
-		 print "Test results path: " + os.join(self.Root,'test-reports')
+         print "Test results path: " + os.join(self.Root,'test-reports')
          testRunner=xmlrunner.XMLTestRunner(output=os.join(self.Root,'test-reports'));
          testRunner.run(self.suite)
          print 'my os.getcwd =>', os.getcwd( ) 
