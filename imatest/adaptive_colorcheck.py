@@ -17,7 +17,7 @@ class adaptive_colorcheck():
         
     def process_image(self,imagename):
         CC_OBJ.root = os.path.join(self.root,'imatest')
-        CC_OBJ.imagename=os.path.join(self.root,'images')+imagename
+        CC_OBJ.imagename=os.path.join(self.root,'images',+imagename)
         CC_OBJ.run();  
         
     def run(self):    
