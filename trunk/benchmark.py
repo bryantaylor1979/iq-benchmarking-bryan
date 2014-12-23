@@ -22,7 +22,7 @@ class benchmark():
         CC_OBJ.projectname=self.projectname;
         CC_OBJ.run();
         
-        TEST_OBJ.Root =os.path.join(self.root,"images\\test_example\\")
+        TEST_OBJ.Root =os.path.join(self.root,"images",self.projectname)
         TEST_OBJ.RUN();
         
 if __name__ == "__main__":
