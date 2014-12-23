@@ -22,10 +22,10 @@ class benchmark():
         CC_OBJ.projectname=self.projectname
         CC_OBJ.run()
         
-        TEST_OBJ.Root ='C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
+        #TEST_OBJ.Root ='C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
         TEST_OBJ.RUN();
         
 if __name__ == "__main__":
     obj = benchmark();
     #obj.root="C:\\Users\\bryantay\\Dev\\"
-    obj.run();
+    obj.RUN();
