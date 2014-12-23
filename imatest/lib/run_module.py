@@ -22,7 +22,7 @@ class run_module():
         command_str = command_str + ' "' + self.image_name + '"'
         command_str = command_str + ' "' + self.imatest_root + '"'
         command_str = command_str + ' "' + self.ini_filename + '"'
-        print command_str
+        print "run_module - command str: " + command_str
         os.system(command_str)
         
 if __name__ == "__main__":
