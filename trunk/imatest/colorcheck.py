@@ -29,4 +29,5 @@ class colorcheck():
 if __name__ == "__main__":
     obj = colorcheck()
     obj.root="C:\\Users\\bryantay\\Dev\\imatest\\"
+    obj.imagename='C:\\Users\\bryantay\\Dev\\images\\test_example\\macbeth_daylight.jpg'
     obj.run();

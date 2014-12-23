@@ -2,12 +2,17 @@ import tests_colorcheck
 import unittest
 import xmlrunner
 import os
+
+class test_limits(object):
+    def __init__(self):
+         self.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_daylight.json'
+         self.colorcheck_min_sat = 98
+         self.colorcheck_max_sat = 125
+         self.colorcheck_wb_deltaC_max = 5
+         self.colorcheck_color_deltaC_max = 10
         
-#  bb_config       'continuous_intergation'
-#                  'rig_temp_board'
 class TestSuite():
-     def __init__(self):
-         self.test_limits = 1;
+     def __init__(self):     
          self.loader = unittest.TestLoader();
          self.suite = unittest.TestSuite();
          
@@ -18,33 +23,6 @@ class TestSuite():
 			self.LoadTestFromSuite(tests)
          else:	
 			self.LoadTestFromSuite(tests,test_limits)
-			
-   
-         # OTHER WAYS 
-         #
-         # Example 1 - Add a single test
-         #      self.suite.addTest(tc_messages.TC_MESSAGES('test_software_version'))
-         #
-         # Example 2 - Add a module of tests using unitest framework
-         #      self.suite = unittest.TestSuite((
-         #      loader.loadTestsFromTestCase(tc_adc_streamer.TC_ADC_STREAMER), 
-         #      loader.loadTestsFromTestCase(tc_synthesiser.TC_SYNTHESISER), 
-         #      loader.loadTestsFromTestCase(tc_fsw.TC_FSW),    
-         #      loader.loadTestsFromTestCase(tc_bit_gen.TC_BIT_GEN),
-         #      loader.loadTestsFromTestCase(tc_calib.TC_CALIB),
-         #      loader.loadTestsFromTestCase(tc_messages.TC_MESSAGES), 
-         #      ))
-         #
-         # Example 3 - Add a module of tests using custom framework to allow        
-         #             adaptation struct to be passed.       
-         #      self.LoadTestFromTestCase(tc_messages_test.TC_MESSAGES,board)
-         #      self.LoadTestFromTestCase(tc_adc_streamer.TC_ADC_STREAMER) 
-         #
-         # Example 4 - Add multiple modules with an array list. 
-         #      tests = (      tc_messages_test.TC_MESSAGES, 
-         #                     tc_adc_streamer.TC_ADC_STREAMER)
-         #      self.LoadTestFromSuite(tests)
-         #      self.LoadTestFromSuite(tests,board)
          
      def LoadTestFromSuite(self,tests,test_limits=None):
          for test in tests:
@@ -61,9 +39,24 @@ class TestSuite():
              else:
                 self.suite.addTest(test_module(test,test_limits)) 
                           
-     def RUN(self):
-         test_limits = 1;
-         self.loadtests(test_limits);
+     def RUN(self):  
+         limits = test_limits();
+         
+         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_daylight.json'
+         self.loadtests(limits);
+
+         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_cwf.json'
+         self.loadtests(limits);
+
+         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_horizon.json'
+         self.loadtests(limits);
+
+         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_inc.json'
+         self.loadtests(limits);
+
+         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_u30.json'
+         self.loadtests(limits);
+         
          result = unittest.TestResult();
          testRunner=xmlrunner.XMLTestRunner(output='test-reports')
          testRunner.run(self.suite)
