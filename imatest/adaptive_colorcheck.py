@@ -26,6 +26,7 @@ class adaptive_colorcheck():
         self.process_image('macbeth_cwf.jpg')
         self.process_image('macbeth_inc.jpg')
         self.process_image('macbeth_horizon.jpg')
+        self.process_image('macbeth_u30.jpg')
         
 if __name__ == "__main__":
     obj = adaptive_colorcheck()

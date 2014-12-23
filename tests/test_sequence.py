@@ -5,14 +5,16 @@ import os
 
 class test_limits(object):
     def __init__(self):
-         self.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_daylight.json'
+         # for test
          self.colorcheck_min_sat = 98
          self.colorcheck_max_sat = 125
          self.colorcheck_wb_deltaC_max = 5
          self.colorcheck_color_deltaC_max = 10
         
 class TestSuite():
-     def __init__(self):     
+     def __init__(self):
+         self.Root = 'C://Users//bryantay//Dev//images//test_example//'
+         #self.Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
          self.loader = unittest.TestLoader();
          self.suite = unittest.TestSuite();
          
@@ -42,19 +44,19 @@ class TestSuite():
      def RUN(self):  
          limits = test_limits();
          
-         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_daylight.json'
+         limits.filename = self.Root + '/Results/' + 'macbeth_daylight.json'
          self.loadtests(limits);
 
-         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_cwf.json'
+         limits.filename = self.Root + '/Results/' + 'macbeth_cwf.json'
          self.loadtests(limits);
 
-         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_horizon.json'
+         limits.filename = self.Root + '/Results/' + 'macbeth_horizon.json'
          self.loadtests(limits);
 
-         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_inc.json'
+         limits.filename = self.Root + '/Results/' + 'macbeth_inc.json'
          self.loadtests(limits);
 
-         limits.filename = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/Results/macbeth_u30.json'
+         limits.filename = self.Root + '/Results/' + 'macbeth_u30.json'
          self.loadtests(limits);
          
          result = unittest.TestResult();
@@ -66,4 +68,5 @@ class TestSuite():
 # The following is one way of running the tests
 if __name__ == '__main__':
     obj = TestSuite();
+    obj.Root = 'C://Users//bryantay//Dev//images//test_example//'
     obj.RUN();
