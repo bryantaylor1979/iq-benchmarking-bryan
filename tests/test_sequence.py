@@ -59,7 +59,7 @@ class TestSuite():
          self.loadtests(self.limits);
          
          #result=unittest.TestResult();
-		 test_path = os.path.join(self.Root,'test-reports');
+         test_path = os.path.join(self.Root,'test-reports');
          print "Test results path: " + test_path
          testRunner=xmlrunner.XMLTestRunner(output=test_path);
          testRunner.run(self.suite)
