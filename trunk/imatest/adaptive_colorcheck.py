@@ -11,8 +11,8 @@ CC_OBJ = colorcheck.colorcheck()
 class adaptive_colorcheck():
     def __init__(self):
         # Do nothing
-        #self.root="C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\"
-        self.root="C:\\Users\\bryantay\\Dev\\"
+        self.root="C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\"
+        #self.root="C:\\Users\\bryantay\\Dev\\"
         self.projectname = 'test_example'
         
     def process_image(self,imagename):
