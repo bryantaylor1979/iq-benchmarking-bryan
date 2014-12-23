@@ -13,8 +13,8 @@ class test_limits(object):
         
 class TestSuite():
      def __init__(self):
-         self.Root = 'C://Users//bryantay//Dev//images//test_example//'
-         #self.Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
+         #self.Root = 'C://Users//bryantay//Dev//images//test_example//'
+         self.Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
          self.loader = unittest.TestLoader();
          self.suite = unittest.TestSuite();
          
