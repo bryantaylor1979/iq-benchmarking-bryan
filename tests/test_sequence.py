@@ -101,7 +101,8 @@ class TestSuite():
          #self.Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
          self.loader = unittest.TestLoader();
          self.suite = unittest.TestSuite();
-         self.limits = adaptive_colorcheck_test_limits(); 
+         self.color_limits = adaptive_colorcheck_test_limits();
+         self.uniformity_limits = adaptive_uniformity_test_limits(); 
          
      def loadtests(self,testName='colorcheck',test_limits=None):   
          if testName == 'colorcheck':
