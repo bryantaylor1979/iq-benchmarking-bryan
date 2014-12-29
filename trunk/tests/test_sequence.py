@@ -1,60 +1,115 @@
 import tests_colorcheck
+import tests_uniformity
 import unittest
 import xmlrunner
 import os
 
-class adaptive_colorcheck_test_limits(object):
-    def __init__(self):
-         # daylight
-         self.Lum0_name = 'daylight'
-         self.Lum0_colorcheck_min_sat = 98
-         self.Lum0_colorcheck_max_sat = 125
-         self.Lum0_colorcheck_wb_deltaC_max = 5
-         self.Lum0_colorcheck_color_deltaC_max = 10
+#Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/'
+Root = 'C://Users//bryantay//Dev//images//'
+
+class uniformity_test_limits(object):
+    def __init__(self):		
+         self.path = '';
+         self.imageName = '';
+         self.max_color_variance = 5
+         
+class adaptive_uniformity_test_limits(object):
+	def __init__(self):
+         self.Lum0 = uniformity_test_limits;
+         self.Lum0.path = Root+'/Results/';
+         self.Lum0.imageName = 'flatfield_daylight'
+         self.Lum0.max_color_variance = 5
 		 
-         self.Lum1_name = 'cwf'
-         self.Lum1_colorcheck_min_sat = 98
-         self.Lum1_colorcheck_max_sat = 125
-         self.Lum1_colorcheck_wb_deltaC_max = 5
-         self.Lum1_colorcheck_color_deltaC_max = 10
-		 
-         self.Lum2_name = 'horizon'
-         self.Lum2_colorcheck_min_sat = 98
-         self.Lum2_colorcheck_max_sat = 125
-         self.Lum2_colorcheck_wb_deltaC_max = 5
-         self.Lum2_colorcheck_color_deltaC_max = 10
-		 
-         self.Lum3_name = 'inc'
-         self.Lum3_colorcheck_min_sat = 98
-         self.Lum3_colorcheck_max_sat = 125
-         self.Lum3_colorcheck_wb_deltaC_max = 5
-         self.Lum3_colorcheck_color_deltaC_max = 10
-		 
-         self.Lum4_name = 'u30'
-         self.Lum4_colorcheck_min_sat = 98
-         self.Lum4_colorcheck_max_sat = 125
-         self.Lum4_colorcheck_wb_deltaC_max = 5
-         self.Lum4_colorcheck_color_deltaC_max = 10
-		 
+         self.Lum1 = uniformity_test_limits;
+         self.Lum1.path = Root+'/Results/';
+         self.Lum1.imageName = 'flatfield_cwf'
+         self.Lum1.max_color_variance = 5
+		
+         self.Lum2 = uniformity_test_limits;
+         self.Lum2.path = Root+'/Results/';
+         self.Lum2.imageName = 'flatfield_horizon'
+         self.Lum2.max_color_variance = 5
+		
+         self.Lum3 = uniformity_test_limits;
+         self.Lum3.path = Root+'/Results/';
+         self.Lum3.imageName = 'flatfield_inc'
+         self.Lum3.max_color_variance = 5
+		
+         self.Lum4 = uniformity_test_limits;
+         self.Lum4.path = Root+'/Results/';
+         self.Lum4.imageName = 'flatfield_u30'
+         self.Lum4.max_color_variance = 5
+         
 class colorcheck_test_limits(object):
     def __init__(self):		 
-         self.filename = '';
+         self.path = '';
+         self.imageName = '';
          self.colorcheck_min_sat = 98
          self.colorcheck_max_sat = 125
          self.colorcheck_wb_deltaC_max = 5
          self.colorcheck_color_deltaC_max = 10
+         
+class adaptive_colorcheck_test_limits(object):
+    def __init__(self):
+         # daylight
+         self.Lum0 = colorcheck_test_limits;
+         self.Lum0.path = Root+'/Results/';
+         self.Lum0.imageName = 'macbeth_daylight'
+         self.Lum0.colorcheck_min_sat = 98
+         self.Lum0.colorcheck_max_sat = 125
+         self.Lum0.colorcheck_wb_deltaC_max = 5
+         self.Lum0.colorcheck_color_deltaC_max = 10
+		 
+         self.Lum1 = colorcheck_test_limits;
+         self.Lum0.path = Root+'/Results/';
+         self.Lum1.imageName = 'macbeth_cwf'
+         self.Lum1.colorcheck_min_sat = 98
+         self.Lum1.colorcheck_max_sat = 125
+         self.Lum1.colorcheck_wb_deltaC_max = 5
+         self.Lum1.colorcheck_color_deltaC_max = 10
+		 
+         self.Lum2 = colorcheck_test_limits;
+         self.Lum0.path = Root+'/Results/';
+         self.Lum2.imageName = 'macbeth_horizon'
+         self.Lum2.colorcheck_min_sat = 98
+         self.Lum2.colorcheck_max_sat = 125
+         self.Lum2.colorcheck_wb_deltaC_max = 5
+         self.Lum2.colorcheck_color_deltaC_max = 10
+		 
+         self.Lum3 = colorcheck_test_limits;
+         self.Lum0.path = Root+'/Results/';
+         self.Lum3.imageName = 'macbeth_inc'
+         self.Lum3.colorcheck_min_sat = 98
+         self.Lum3.colorcheck_max_sat = 125
+         self.Lum3.colorcheck_wb_deltaC_max = 5
+         self.Lum3.colorcheck_color_deltaC_max = 10
+		 
+         self.Lum4 = colorcheck_test_limits;
+         self.Lum0.path = Root+'/Results/';
+         self.Lum4.imageName = 'macbeth_u30'
+         self.Lum4.colorcheck_min_sat = 98
+         self.Lum4.colorcheck_max_sat = 125
+         self.Lum4.colorcheck_wb_deltaC_max = 5
+         self.Lum4.colorcheck_color_deltaC_max = 10
+		 
+
+		 
         
 class TestSuite():
      def __init__(self):
          #self.Root = 'C://Users//bryantay//Dev//images//test_example//'
-         self.Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
+         #self.Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/test_example/'
          self.loader = unittest.TestLoader();
          self.suite = unittest.TestSuite();
          self.limits = adaptive_colorcheck_test_limits(); 
          
-     def loadtests(self,test_limits=None):                       
-         tests = (        tests_colorcheck.TESTS_COLORCHECK, 
+     def loadtests(self,testName='colorcheck',test_limits=None):   
+         if testName == 'colorcheck':
+             tests = (        tests_colorcheck.TESTS_COLORCHECK, 
                         )
+         elif testName == 'uniformity':
+             tests = (        tests_uniformity.TESTS_UNIFORMITY, 
+                        )         
          if test_limits==None:      
 			self.LoadTestFromSuite(tests)
          else:	
@@ -74,47 +129,32 @@ class TestSuite():
                 self.suite.addTest(test_module(test))
              else:
                 self.suite.addTest(test_module(test,test_limits)) 
+                
+     def loadAdaptiveTests(self,limits,testName):
+         limits_single =          limits.Lum0
+         self.loadtests(testName,limits_single);
+
+         limits_single =          limits.Lum1
+         self.loadtests(testName,limits_single);
+
+         limits_single =          limits.Lum2
+         self.loadtests(testName,limits_single);
+
+         limits_single =          limits.Lum3
+         self.loadtests(testName,limits_single);
+
+         limits_single =          limits.Lum4
+         self.loadtests(testName,limits_single);
                           
      def RUN(self):  
-         limits = colorcheck_test_limits()
-		 
-         limits.filename = self.Root + '/Results/' + 'macbeth_' + self.limits.Lum0_name + '.json'
-         limits.colorcheck_min_sat =          self.limits.Lum0_colorcheck_min_sat
-         limits.colorcheck_max_sat =          self.limits.Lum0_colorcheck_max_sat
-         limits.colorcheck_wb_deltaC_max =    self.limits.Lum0_colorcheck_wb_deltaC_max
-         limits.colorcheck_color_deltaC_max = self.limits.Lum0_colorcheck_color_deltaC_max
-         self.loadtests(limits);
-
-         limits.filename = self.Root + '/Results/' + 'macbeth_' + self.limits.Lum1_name + '.json'
-         limits.colorcheck_min_sat =          self.limits.Lum1_colorcheck_min_sat
-         limits.colorcheck_max_sat =          self.limits.Lum1_colorcheck_max_sat
-         limits.colorcheck_wb_deltaC_max =    self.limits.Lum1_colorcheck_wb_deltaC_max
-         limits.colorcheck_color_deltaC_max = self.limits.Lum1_colorcheck_color_deltaC_max
-         self.loadtests(limits);
-
-         limits.filename = self.Root + '/Results/' + 'macbeth_' + self.limits.Lum2_name + '.json'
-         limits.colorcheck_min_sat =          self.limits.Lum2_colorcheck_min_sat
-         limits.colorcheck_max_sat =          self.limits.Lum2_colorcheck_max_sat
-         limits.colorcheck_wb_deltaC_max =    self.limits.Lum2_colorcheck_wb_deltaC_max
-         limits.colorcheck_color_deltaC_max = self.limits.Lum2_colorcheck_color_deltaC_max
-         self.loadtests(limits);
-
-         limits.filename = self.Root + '/Results/' + 'macbeth_' + self.limits.Lum3_name + '.json'
-         limits.colorcheck_min_sat =          self.limits.Lum3_colorcheck_min_sat
-         limits.colorcheck_max_sat =          self.limits.Lum3_colorcheck_max_sat
-         limits.colorcheck_wb_deltaC_max =    self.limits.Lum3_colorcheck_wb_deltaC_max
-         limits.colorcheck_color_deltaC_max = self.limits.Lum3_colorcheck_color_deltaC_max
-         self.loadtests(limits);
-
-         limits.filename = self.Root + '/Results/' + 'macbeth_' + self.limits.Lum4_name + '.json'
-         limits.colorcheck_min_sat =          self.limits.Lum4_colorcheck_min_sat
-         limits.colorcheck_max_sat =          self.limits.Lum4_colorcheck_max_sat
-         limits.colorcheck_wb_deltaC_max =    self.limits.Lum4_colorcheck_wb_deltaC_max
-         limits.colorcheck_color_deltaC_max = self.limits.Lum4_colorcheck_color_deltaC_max
-         self.loadtests(limits);
+         limits = adaptive_colorcheck_test_limits()
+         self.loadAdaptiveTests(limits,'colorcheck')
+         
+         limits = adaptive_uniformity_test_limits()
+         self.loadAdaptiveTests(limits,'uniformity')
          
          #result=unittest.TestResult();
-         test_path = os.path.join(self.Root,'test-reports');
+         test_path = os.path.join(Root,'test-reports');
          print "Test results path: " + test_path
          testRunner=xmlrunner.XMLTestRunner(output=test_path);
          testRunner.run(self.suite)
@@ -123,5 +163,4 @@ class TestSuite():
 # The following is one way of running the tests
 if __name__ == '__main__':
     obj = TestSuite();
-    #obj.Root = 'C://Users//bryantay//Dev//images//test_example//'
     obj.RUN();

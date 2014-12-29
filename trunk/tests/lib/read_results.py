@@ -3,6 +3,7 @@ class read_results:
     def __init__(self,filename):
         # parameters
         self.filename = filename;
+        self.structname = 'jstruct' # uniformityResults
         
     def readFile(self):        
         # Read file into json format
@@ -12,13 +13,14 @@ class read_results:
         return struct
         
     def getParam(self,struct,ParamName):
-        Val = struct['jstruct'][ParamName]
+        Val = struct[self.structname][ParamName]
         if Val.__len__() == 1:
             Val = Val[0]
         return Val
         
 if __name__ == "__main__":
-    obj = read_results('C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/Results/example.json');
+    obj = read_results('C:/Users/bryantay/Dev/images/Results/flatfield_cwf_LF_Y.json');
+    obj.structname = 'uniformityResults'
     struct = obj.readFile();
-    Val = obj.getParam(struct,'Mean_White_Balance_delta_C94');
+    Val = obj.getParam(struct,'cpiq_color_variability');
     print Val
