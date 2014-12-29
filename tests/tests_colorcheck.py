@@ -26,18 +26,22 @@ class TESTS_COLORCHECK(unittest.TestCase):
         
         #self.targets = "D65"
         if test_limits==None:
-             self.filename = 'C:/Users/bryantay/Dev/images/test_example/Results/macbeth_daylight.json'
+             self.path = 'C:/Users/bryantay/Dev/images/Results/'
+             self.imageName = 'macbeth_daylight'
              self.min_sat = 98
              self.max_sat = 125
              self.wb_deltaC_max = 5
              self.color_deltaC_max = 10
         else:
-             self.filename = test_limits.filename;
+             self.path = test_limits.path
+             self.imageName = test_limits.imageName;
              self.min_sat = test_limits.colorcheck_min_sat;
              self.max_sat = test_limits.colorcheck_max_sat;
              self.wb_deltaC_max = test_limits.colorcheck_wb_deltaC_max;
              self.color_deltaC_max = test_limits.colorcheck_color_deltaC_max;                
 
+        self.ext = '.json';
+        self.filename = self.path + self.imageName + self.ext
         self.read_OBJ = read_colourcheck_keyresults.read_colourcheck_keyresults(self.filename);
         self.read_OBJ.run();
         
