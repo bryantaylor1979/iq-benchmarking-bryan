@@ -12,6 +12,15 @@ CC_OBJ = adaptive_colorcheck.adaptive_colorcheck();
 UF_OBJ = adaptive_uniformity.adaptive_uniformity();
 TEST_OBJ = test_sequence.TestSuite();
 
+Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/'
+#Root = 'C://Users//bryantay//Dev//images//'
+
+class uniformity_test_limits(object):
+    def __init__(self):		
+         self.path = '';
+         self.imageName = '';
+         self.max_color_variance = 5
+
 class adaptive_uniformity_test_limits(object):
 	def __init__(self):
          self.Lum0 = uniformity_test_limits;
@@ -38,6 +47,15 @@ class adaptive_uniformity_test_limits(object):
          self.Lum4.path = Root+'/Results/';
          self.Lum4.imageName = 'flatfield_u30'
          self.Lum4.max_color_variance = 5
+
+class colorcheck_test_limits(object):
+    def __init__(self):		 
+         self.path = '';
+         self.imageName = '';
+         self.colorcheck_min_sat = 98
+         self.colorcheck_max_sat = 125
+         self.colorcheck_wb_deltaC_max = 5
+         self.colorcheck_color_deltaC_max = 10
          
 class adaptive_colorcheck_test_limits(object):
     def __init__(self):
@@ -85,15 +103,13 @@ class adaptive_colorcheck_test_limits(object):
 class benchmark():
     def __init__(self):
         # Do nothing
-        self.root="C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\"
-        #self.root="C:\\Users\\bryantay\\Dev\\"
         
     def run(self):    
         # Params
-        CC_OBJ.root=self.root;
+        CC_OBJ.root=Root;
         CC_OBJ.run();
         
-        UF_OBJ.root=self.root;
+        UF_OBJ.root=Root;
         UF_OBJ.run();
         
         TEST_OBJ.Root = os.path.join(self.root,"images")
@@ -104,5 +120,4 @@ class benchmark():
         
 if __name__ == "__main__":
     obj = benchmark();
-    #obj.root="C:\\Users\\bryantay\\Dev\\"
     obj.run();
