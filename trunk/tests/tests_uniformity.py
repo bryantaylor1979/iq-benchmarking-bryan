@@ -29,11 +29,15 @@ class TESTS_UNIFORMITY(unittest.TestCase):
              self.path = 'C:/Users/bryantay/Dev/images/Results/'
              self.imageName = 'flatfield_daylight'
              self.max_color_variance = 5
+             self.max_corner_Y = 0.85
+             self.min_corner_Y = 0.75
         else:
              self.path = test_limits.path;
              self.imageName = test_limits.imageName;
              print test_limits
              self.max_color_variance = test_limits.max_color_variance;    
+             self.max_corner_Y = test_limits.max_corner_Y;
+             self.min_corner_Y = test_limits.min_corner_Y;
              
         self.ext = '_LF_Y.json';
         self.filename = self.path + self.imageName + self.ext
@@ -47,6 +51,25 @@ class TESTS_UNIFORMITY(unittest.TestCase):
             This uses parameters set in adaptation.py.
             Also gets and prints the software version.
         """
+    def test_lensShading_bowl_UL(self):
+        string = self.buildString('lensShading bowl - UL',self.min_corner_Y,self.max_corner_Y,self.read_OBJ.Y_corner_UL);     
+        self.assertTrue(self.min_corner_Y < self.read_OBJ.Y_corner_UL < self.max_corner_Y,
+                        string) 
+                        
+    def test_lensShading_bowl_UR(self):
+        string = self.buildString('lensShading bowl - UR',self.min_corner_Y,self.max_corner_Y,self.read_OBJ.Y_corner_UR);     
+        self.assertTrue(self.min_corner_Y < self.read_OBJ.Y_corner_UR < self.max_corner_Y,
+                        string)
+                        
+    def test_lensShading_bowl_LL(self):
+        string = self.buildString('lensShading bowl - LL',self.min_corner_Y,self.max_corner_Y,self.read_OBJ.Y_corner_LL);     
+        self.assertTrue(self.min_corner_Y < self.read_OBJ.Y_corner_LL < self.max_corner_Y,
+                        string) 
+                        
+    def test_lensShading_bowl_LR(self):
+        string = self.buildString('lensShading bowl - LR',self.min_corner_Y,self.max_corner_Y,self.read_OBJ.Y_corner_LR);     
+        self.assertTrue(self.min_corner_Y < self.read_OBJ.Y_corner_LR < self.max_corner_Y,
+                        string) 
 
     def test_color_variance(self):
         string = self.buildString('color variance',0,self.max_color_variance,self.read_OBJ.cpiq_color_variability);     
