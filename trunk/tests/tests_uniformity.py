@@ -31,6 +31,7 @@ class TESTS_UNIFORMITY(unittest.TestCase):
              self.max_color_variance = 5
              self.max_corner_Y = 0.85
              self.min_corner_Y = 0.75
+             self.max_corner_balance_Y = 5
         else:
              self.path = test_limits.path;
              self.imageName = test_limits.imageName;
@@ -38,6 +39,7 @@ class TESTS_UNIFORMITY(unittest.TestCase):
              self.max_color_variance = test_limits.max_color_variance;    
              self.max_corner_Y = test_limits.max_corner_Y;
              self.min_corner_Y = test_limits.min_corner_Y;
+             self.max_corner_balance_Y = test_limits.max_corner_balance_Y;
              
         self.ext = '_LF_Y.json';
         self.filename = self.path + self.imageName + self.ext
@@ -70,6 +72,14 @@ class TESTS_UNIFORMITY(unittest.TestCase):
         string = self.buildString('lensShading bowl - LR',self.min_corner_Y,self.max_corner_Y,self.read_OBJ.Y_corner_LR);     
         self.assertTrue(self.min_corner_Y < self.read_OBJ.Y_corner_LR < self.max_corner_Y,
                         string) 
+
+    def test_lensShading_corner_balance(self):
+        array = [self.read_OBJ.Y_corner_LR,self.read_OBJ.Y_corner_LL,self.read_OBJ.Y_corner_UR,self.read_OBJ.Y_corner_UL]
+        val = (max(array) - min(array))*100
+        print "max val: " + str(val)
+        string = self.buildString('lensShading corner balance',0,self.max_corner_balance_Y,val);     
+        self.assertTrue(0 < val < self.max_corner_balance_Y,
+                        string)        
 
     def test_color_variance(self):
         string = self.buildString('color variance',0,self.max_color_variance,self.read_OBJ.cpiq_color_variability);     
