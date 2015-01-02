@@ -103,6 +103,7 @@ class adaptive_colorcheck_test_limits(object):
 class benchmark():
     def __init__(self):
         # Do nothing
+        self.root=Root;
         
     def run(self):    
         # Params
