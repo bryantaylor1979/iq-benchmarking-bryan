@@ -22,5 +22,7 @@ if __name__ == "__main__":
     obj = read_results('C:/Users/bryantay/Dev/images/Results/flatfield_cwf_LF_Y.json');
     obj.structname = 'uniformityResults'
     struct = obj.readFile();
-    Val = obj.getParam(struct,'cpiq_color_variability');
+    #Val = obj.getParam(struct,'cpiq_color_variability');
+    Val = obj.getParam(struct,'corner_lvls_Pct_UL_LL_UR_LR');
     print Val
+    #print struct
