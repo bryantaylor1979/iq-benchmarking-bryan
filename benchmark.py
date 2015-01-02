@@ -10,9 +10,11 @@ import tests.test_sequence as test_sequence
 import os
 CC_OBJ = adaptive_colorcheck.adaptive_colorcheck();
 UF_OBJ = adaptive_uniformity.adaptive_uniformity();
-TEST_OBJ = test_sequence.TestSuite();
 
 Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/'
+
+test_sequence.Root = Root;
+TEST_OBJ = test_sequence.TestSuite();
 #Root = 'C://Users//bryantay//Dev//images//'
 
 class uniformity_test_limits(object):
