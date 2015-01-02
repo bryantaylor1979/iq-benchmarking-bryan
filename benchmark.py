@@ -22,6 +22,8 @@ class uniformity_test_limits(object):
          self.path = '';
          self.imageName = '';
          self.max_color_variance = 5
+         self.max_corner_Y = 0.85
+         self.min_corner_Y = 0.75
 
 class adaptive_uniformity_test_limits(object):
 	def __init__(self):
@@ -29,27 +31,37 @@ class adaptive_uniformity_test_limits(object):
          self.Lum0.path = Root+'/images/Results/';
          self.Lum0.imageName = 'flatfield_daylight'
          self.Lum0.max_color_variance = 5
+         self.Lum0.max_corner_Y = 0.85
+         self.Lum0.min_corner_Y = 0.75
 		 
          self.Lum1 = uniformity_test_limits;
          self.Lum1.path = Root+'/images/Results/';
          self.Lum1.imageName = 'flatfield_cwf'
          self.Lum1.max_color_variance = 5
-		
+         self.Lum1.max_corner_Y = 0.85
+         self.Lum1.min_corner_Y = 0.75
+         
          self.Lum2 = uniformity_test_limits;
          self.Lum2.path = Root+'/images/Results/';
          self.Lum2.imageName = 'flatfield_horizon'
          self.Lum2.max_color_variance = 5
-		
+         self.Lum2.max_corner_Y = 0.85
+         self.Lum2.min_corner_Y = 0.75
+         
          self.Lum3 = uniformity_test_limits;
          self.Lum3.path = Root+'/images/Results/';
          self.Lum3.imageName = 'flatfield_inc'
          self.Lum3.max_color_variance = 5
-		
+         self.Lum3.max_corner_Y = 0.85
+         self.Lum3.min_corner_Y = 0.75
+         
          self.Lum4 = uniformity_test_limits;
          self.Lum4.path = Root+'/images/Results/';
          self.Lum4.imageName = 'flatfield_u30'
          self.Lum4.max_color_variance = 5
-
+         self.Lum4.max_corner_Y = 0.85
+         self.Lum4.min_corner_Y = 0.75
+         
 class colorcheck_test_limits(object):
     def __init__(self):		 
          self.path = '';
