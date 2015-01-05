@@ -30,5 +30,6 @@ class random():
 if __name__ == "__main__":
     obj = random()
     obj.root="C:\\Users\\bryantay\\Dev\\imatest\\"
-    obj.imagename='C:\\Users\\bryantay\\Dev\\images\\random.jpg'
+    #obj.imagename='C:\\Users\\bryantay\\Dev\\images\\random.jpg' # This is the imatest charr
+    obj.imagename='C:\\Users\\bryantay\\Dev\\images\\random_type2_IE.png' # This is the image engineer chart
     obj.run();
