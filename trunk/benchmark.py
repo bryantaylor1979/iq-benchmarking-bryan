@@ -6,10 +6,13 @@ Created on Tue Dec 23 10:59:51 2014
 """
 import imatest.adaptive_colorcheck as adaptive_colorcheck
 import imatest.adaptive_uniformity as adaptive_uniformity
+import imatest.adaptive_sfrplus as adaptive_sfrplus
 import tests.test_sequence as test_sequence
 import os
+
 CC_OBJ = adaptive_colorcheck.adaptive_colorcheck();
 UF_OBJ = adaptive_uniformity.adaptive_uniformity();
+SFRP_OBJ = adaptive_sfrplus.adaptive_sfrplus();
 
 Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/'
 
@@ -126,6 +129,9 @@ class benchmark():
         
         UF_OBJ.root=Root;
         UF_OBJ.run();
+        
+        SFRP_OBJ.root=Root;
+        SFRP_OBJ.run();
         
         TEST_OBJ.Root = os.path.join(self.root,"images")
         TEST_OBJ.color_limits = adaptive_colorcheck_test_limits();
