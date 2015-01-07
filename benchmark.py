@@ -15,10 +15,11 @@ UF_OBJ = adaptive_uniformity.adaptive_uniformity();
 SFRP_OBJ = adaptive_sfrplus.adaptive_sfrplus();
 
 Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/'
+Root = 'C://Users//bryantay//Dev//'
 
 test_sequence.Root = Root+'/images/';
 TEST_OBJ = test_sequence.TestSuite();
-#Root = 'C://Users//bryantay//Dev//images//'
+
 
 class uniformity_test_limits(object):
     def __init__(self):		

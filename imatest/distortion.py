@@ -31,4 +31,5 @@ if __name__ == "__main__":
     obj = distortion()
     obj.root="C:\\Users\\bryantay\\Dev\\imatest\\"
     obj.imagename='C:\\Users\\bryantay\\Dev\\images\\distortion.jpg'
+    obj.imagename='C:\\Users\\bryantay\\Dev\\images\\dotpattern.png'
     obj.run();

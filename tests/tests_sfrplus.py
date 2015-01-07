@@ -27,14 +27,14 @@ class TESTS_SFRPLUS(unittest.TestCase):
         #self.targets = "D65"
         if test_limits==None:
              self.path = 'C:/Users/bryantay/Dev/images/Results/'
-             self.imageName = 'sfrplus_daylight_Y'
+             self.imageName = 'sfrplus_daylight'
              self.min_mtf50_center = 1500
         else:
              self.path = test_limits.path
              self.imageName = test_limits.imageName;
              self.min_mtf50_center = test_limits.min_mtf50_center;               
 
-        self.ext = '.json';
+        self.ext = '_Y.json';
         self.filename = self.path + self.imageName + self.ext
         self.read_OBJ = read_sfrplus_keyresults.read_sfrplus_keyresults(self.filename);
         self.read_OBJ.run();
