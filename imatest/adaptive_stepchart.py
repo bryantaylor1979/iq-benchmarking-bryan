@@ -9,7 +9,7 @@ import stepchart
 import os
 CC_OBJ = stepchart.stepchart()
 
-class adaptive_uniformity():
+class adaptive_stepchart():
     def __init__(self):
         # Do nothing
         self.root="C:\\Program Files (x86)\\Jenkins\\jobs\\ColorCheck\\workspace\\"
@@ -29,6 +29,6 @@ class adaptive_uniformity():
         self.process_image('stepchart_u30.jpg')
         
 if __name__ == "__main__":
-    obj = adaptive_uniformity()
+    obj = adaptive_stepchart()
     obj.root="C:\\Users\\bryantay\\Dev\\"
     obj.run();
