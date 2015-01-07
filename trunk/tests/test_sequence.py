@@ -1,6 +1,7 @@
 import tests_colorcheck
 import tests_uniformity
 import tests_sfrplus
+import tests_stepchart
 import unittest
 import xmlrunner
 import os
@@ -8,6 +9,55 @@ import os
 Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/'
 #Root = 'C://Users//bryantay//Dev//images//'
 
+class stepchart_test_limits(object):
+    def __init__(self):		
+         self.path = '';
+         self.imageName = '';
+         self.minSNR = 0;
+         self.maxNoise = 0;
+         self.minZones = 0;
+         
+class adaptive_stepchart_test_limits(object):
+	def __init__(self):
+         self.Lum0 = stepchart_test_limits;
+         self.Lum0.path = Root+'/Results/';
+         self.Lum0.imageName = 'stepchart_daylight'
+         self.Lum0.minSNR = 20;
+         self.Lum0.maxNoise = 180;
+         self.Lum0.minZones = 19;
+         
+         self.Lum1 = stepchart_test_limits;
+         self.Lum1.path = Root+'/Results/';
+         self.Lum1.imageName = 'stepchart_cwf'
+         self.Lum1.min_mtf50_center = 1500
+         self.Lum1.minSNR = 20;
+         self.Lum1.maxNoise = 180;
+         self.Lum1.minZones = 19;
+         
+         self.Lum2 = stepchart_test_limits;
+         self.Lum2.path = Root+'/Results/';
+         self.Lum2.imageName = 'stepchart_horizon'
+         self.Lum2.min_mtf50_center = 1700
+         self.Lum2.minSNR = 20;
+         self.Lum2.maxNoise = 180;
+         self.Lum2.minZones = 19;
+         
+         self.Lum3 = stepchart_test_limits;
+         self.Lum3.path = Root+'/Results/';
+         self.Lum3.imageName = 'stepchart_inc'
+         self.Lum3.min_mtf50_center = 1700
+         self.Lum3.minSNR = 20;
+         self.Lum3.maxNoise = 180;
+         self.Lum3.minZones = 19;
+         
+         self.Lum4 = stepchart_test_limits;
+         self.Lum4.path = Root+'/Results/';
+         self.Lum4.imageName = 'stepchart_u30'
+         self.Lum4.min_mtf50_center = 1700
+         self.Lum4.minSNR = 20;
+         self.Lum4.maxNoise = 180;
+         self.Lum4.minZones = 19;
+         
 class sfrplus_test_limits(object):
     def __init__(self):		
          self.path = '';
@@ -156,6 +206,7 @@ class TestSuite():
          self.color_limits = adaptive_colorcheck_test_limits();
          self.uniformity_limits = adaptive_uniformity_test_limits(); 
          self.sfrplus_limits = adaptive_sfrplus_test_limits(); 
+         self.stepchart_limits = adaptive_stepchart_test_limits();
          
      def loadtests(self,testName='colorcheck',test_limits=None):   
          if testName == 'colorcheck':
@@ -166,7 +217,10 @@ class TestSuite():
                         )      
          elif testName == 'sfrplus':
              tests = (        tests_sfrplus.TESTS_SFRPLUS, 
-                        )                
+                        )   
+         elif testName == 'stepchart':
+             tests = (        tests_stepchart.TESTS_STEPCHART, 
+                        )    
          if test_limits==None:      
 			self.LoadTestFromSuite(tests)
          else:	
@@ -212,6 +266,9 @@ class TestSuite():
          
          limits = adaptive_sfrplus_test_limits()
          self.loadAdaptiveTests(limits,'sfrplus')
+
+         limits = adaptive_stepchart_test_limits()
+         self.loadAdaptiveTests(limits,'stepchart')
          
          #result=unittest.TestResult();
          test_path = os.path.join(Root,'test-reports');
