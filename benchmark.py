@@ -8,6 +8,7 @@ import imatest.adaptive_colorcheck as adaptive_colorcheck
 import imatest.adaptive_uniformity as adaptive_uniformity
 import imatest.adaptive_sfrplus as adaptive_sfrplus
 import imatest.adaptive_stepchart as adaptive_stepchart
+import imatest.adaptive_dotpattern as adaptive_dotpattern
 import tests.test_sequence as test_sequence
 import os
 
@@ -15,6 +16,7 @@ CC_OBJ = adaptive_colorcheck.adaptive_colorcheck();
 UF_OBJ = adaptive_uniformity.adaptive_uniformity();
 SFRP_OBJ = adaptive_sfrplus.adaptive_sfrplus();
 STEP_OBJ = adaptive_stepchart.adaptive_stepchart();
+DOT_OBJ = adaptive_dotpattern.adaptive_dotpattern();
 
 Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/'
 #Root = 'C://Users//bryantay//Dev//'
@@ -137,7 +139,10 @@ class benchmark():
         SFRP_OBJ.run();
         
         STEP_OBJ.root=Root;
-        STEP_OBJ.run();        
+        STEP_OBJ.run();      
+        
+        DOT_OBJ.root=Root;
+        DOT_OBJ.run();  
 
         TEST_OBJ.Root = os.path.join(self.root,"images")
         TEST_OBJ.color_limits = adaptive_colorcheck_test_limits();
