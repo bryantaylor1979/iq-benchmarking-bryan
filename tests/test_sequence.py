@@ -29,17 +29,17 @@ class adaptive_sfrplus_test_limits(object):
          self.Lum2 = uniformity_test_limits;
          self.Lum2.path = Root+'/Results/';
          self.Lum2.imageName = 'sfrplus_horizon'
-         self.Lum2.min_mtf50_center = 1500
+         self.Lum2.min_mtf50_center = 1700
          
          self.Lum3 = uniformity_test_limits;
          self.Lum3.path = Root+'/Results/';
          self.Lum3.imageName = 'sfrplus_inc'
-         self.Lum3.min_mtf50_center = 1500
+         self.Lum3.min_mtf50_center = 1700
          
          self.Lum4 = uniformity_test_limits;
          self.Lum4.path = Root+'/Results/';
          self.Lum4.imageName = 'sfrplus_u30'
-         self.Lum4.min_mtf50_center = 1500
+         self.Lum4.min_mtf50_center = 1700
 
 class uniformity_test_limits(object):
     def __init__(self):		
