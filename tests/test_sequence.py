@@ -5,8 +5,8 @@ import unittest
 import xmlrunner
 import os
 
-#Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/'
-Root = 'C://Users//bryantay//Dev//images//'
+Root = 'C:/Program Files (x86)/Jenkins/jobs/ColorCheck/workspace/images/'
+#Root = 'C://Users//bryantay//Dev//images//'
 
 class sfrplus_test_limits(object):
     def __init__(self):		
