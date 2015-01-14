@@ -1,5 +1,5 @@
 workspacepath = '/var/lib/jenkins/jobs/findmacbeth_udayton/workspace'
-addpath(fullpath(workspacepath,'lib'))
-addpath(fullpath(workspacepath,'testing'))
-DIR = fullpath(workspacepath,'images\withmacbeth\');
+addpath(fullfile(workspacepath,'lib'))
+addpath(fullfile(workspacepath,'testing'))
+DIR = fullfile(workspacepath,'images\withmacbeth\');
 testall_images(DIR,'udayton')
