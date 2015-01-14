@@ -1,5 +1,7 @@
 workspacepath = '/var/lib/jenkins/jobs/findmacbeth_combined/workspace'
-addpath(fullfile(workspacepath,'lib'))
+addpath(fullfile(workspacepath,'amazon'))
+addpath(fullfile(workspacepath,'combined'))
+addpath(fullfile(workspacepath,'udayton'))
 addpath(fullfile(workspacepath,'testing'))
 DIR = fullfile(workspacepath,'images/withmacbeth/');
 testall_images(DIR,'combined')
