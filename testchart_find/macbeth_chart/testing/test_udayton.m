@@ -1,4 +1,4 @@
-workspacepath = '/var/lib/jenkins/jobs/findmacbeth_amazon/workspace'
+workspacepath = '/var/lib/jenkins/jobs/findmacbeth_udayton/workspace'
 addpath(fullfile(workspacepath,'lib'))
 addpath(fullfile(workspacepath,'testing'))
 DIR = fullfile(workspacepath,'images/withmacbeth/');
