@@ -15,11 +15,11 @@ x = size(images,1);
 passedcount = 0;
 for i = 1:x
     imagename = fullfile(DIR,images{i});
-    try
+%     try
     [PASS] = feval(['findmacbeth_',mode],imagename);
-    catch
-    PASS = false;    
-    end
+%     catch
+%     PASS = false;    
+%     end
     if PASS == true
         passedcount = passedcount + 1;
         disp([images{i},': PASS'])
