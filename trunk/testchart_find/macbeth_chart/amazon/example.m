@@ -6,16 +6,20 @@ IMAGE = imread('C:\Users\bryantay\Documents\MATLAB\broadcom\Mannaquin_6500_50lux
 imagescale = 8;
 printdebug = false
 struct = findmacbeth(IMAGE,imagescale,printdebug,[]);
+macbethrois(IMAGE,struct)
 
 %%
-figure, imagesc(IMAGE);
-[y,x,z] = size(IMAGE)
-ax=gca;
-for i = 1:24
-    pos = [(struct(i).X),struct(i).Y];
-    imrect(ax,[pos(1),pos(2),1,1]);
-    imageROI(1:100,1:100,1) = struct(i).R/256;
-    imageROI(1:100,1:100,2) = struct(i).G/256;
-    imageROI(1:100,1:100,3) = struct(i).B/256;
-%     figure, imshow(imageROI)
-end
+close all
+clear classes
+imagename = 'C:\Users\bryantay\Dev\testchart_find\macbeth_chart\images\withmacbeth\macbeth_cwf.jpg'
+[PASS,rois] = findmacbeth_amazon(imagename);
+
+%%
+imagename = 'C:\Users\bryantay\Dev\testchart_find\macbeth_chart\images\withmacbeth\Mannaquin_6500_50lux.jpg'
+IMAGE = imread(imagename);
+[PASS,rois] = findmacbeth_udayton(imagename);
+
+%%
+new_struct = udayton2generic(rois);
+h = plot_macbethrois(IMAGE,new_struct);
+saveas(h,'roi_plot.jpg')

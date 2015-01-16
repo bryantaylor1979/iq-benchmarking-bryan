@@ -1,4 +1,4 @@
-function [PASS] = findmacbeth_udayton(imagename)
+function [PASS,X] = findmacbeth_udayton(imagename)
 %%
 IMAGE = imread(imagename);
 I = double(IMAGE);
