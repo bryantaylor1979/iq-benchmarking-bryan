@@ -1,5 +1,5 @@
 function struct = ImageInfo()
-    DefaultNum = [];
+    DefaultNum = []; 
     struct.ImageInfo.GreyPatchCoords.LL.X = DefaultNum;
     struct.ImageInfo.GreyPatchCoords.LL.Y = DefaultNum;
     struct.ImageInfo.GreyPatchCoords.UL.X = DefaultNum;
