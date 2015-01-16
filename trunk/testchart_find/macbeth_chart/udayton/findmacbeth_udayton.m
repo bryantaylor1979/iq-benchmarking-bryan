@@ -1,6 +1,5 @@
-function [PASS,X] = findmacbeth_udayton(imagename)
+function [PASS,new_struct] = findmacbeth_udayton(IMAGE)
 %%
-IMAGE = imread(imagename);
 I = double(IMAGE);
 imagescale = 3;
 [X,C] = CCFind(imresize(I,1/imagescale));
@@ -11,6 +10,8 @@ if isempty(X)
 end
 if isempty(X)
     PASS = false;
+    new_struct = [];
 else
     PASS = true;
+    new_struct = udayton2generic(struct,'method2');
 end
