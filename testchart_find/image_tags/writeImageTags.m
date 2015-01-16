@@ -7,11 +7,11 @@ function writeImageTags(imagename,macbeth)
     struct = ImageInfo();
     struct.ImageInfo.Macbeth = macbeth;
     struct.ImageInfo.GreyPatchCoords = macbeth.(['Patch',num2str(PatchForAWBReg)]);
-    [~,filename,~] = fileparts(imagename);
+    [path,filename,~] = fileparts(imagename);
     if EnableXML == true
-       struct2xml(  struct, [filename,'.xml'] )
+       struct2xml(  struct, fullfile(path,[filename,'.xml']) )
     end
     if EnableJSON == true
-       struct2json( struct, [filename,'.json'] )
+       struct2json( struct, fullfile(path,[filename,'.json']) )
     end
 end

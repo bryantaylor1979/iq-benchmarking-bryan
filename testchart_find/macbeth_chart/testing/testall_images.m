@@ -37,6 +37,8 @@ for i = 1:x
         h = plot_macbethrois(IMAGE,struct,visible);
         saveas(h,fullfile(path,'Results',[filename,suffix]))
         close(h);
+        
+        writeImageTags(imagename,struct);
     else
         disp([images{i},': FAIL'])
     end
