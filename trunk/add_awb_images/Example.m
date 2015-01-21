@@ -1,2 +1,2 @@
 %%
-add_awb_images(true)
+add_awb_images(true,'Photoshoot')
