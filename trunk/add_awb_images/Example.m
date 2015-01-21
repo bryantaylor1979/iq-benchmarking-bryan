@@ -1,2 +1,3 @@
 %%
-add_awb_images(true,'Photoshoot')
+WorkspacePath = '/home/bryan/AddAWB_Pictures/trunk/';
+add_awb_images(WorkspacePath,true,'Photoshoot')

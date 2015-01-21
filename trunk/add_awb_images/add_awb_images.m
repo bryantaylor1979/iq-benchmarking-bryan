@@ -1,7 +1,5 @@
-function add_awb_images(ProcessAllImage,PhotoshootName)
+function add_awb_images(WorkspacePath,ProcessAllImage,PhotoshootName)
     ImageRootPath = '/mnt/depart_share/ImageDatabase/AmazonAWB/tobeadded/';
-    WorkspacePath = '/var/lib/jenkins/jobs/findmacbeth_amazon/workspace/';
-    WorkspacePath = '/home/bryan/AddAWB_Pictures/trunk/';
     addpath(fullfile(WorkspacePath,'add_awb_images'))
     addpath(fullfile(WorkspacePath,'testchart_find'))
     addpath(fullfile(WorkspacePath,'testchart_find','image_tags'))
