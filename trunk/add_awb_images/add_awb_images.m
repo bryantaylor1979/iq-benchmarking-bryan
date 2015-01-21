@@ -1,4 +1,4 @@
-function add_awb_images(ProcessAllImage)
+function add_awb_images(ProcessAllImage,PhotoshootName)
     ImageRootPath = '/mnt/depart_share/ImageDatabase/AmazonAWB/tobeadded/';
     WorkspacePath = '/var/lib/jenkins/jobs/findmacbeth_amazon/workspace/';
     WorkspacePath = '/home/bryan/AddAWB_Pictures/trunk/';
@@ -11,4 +11,5 @@ function add_awb_images(ProcessAllImage)
     addpath(fullfile(WorkspacePath,'testchart_find','macbeth_chart','testing'))
     addpath(fullfile(WorkspacePath,'testchart_find','macbeth_chart','udayton'))
     disp(['Enable: ',num2str(ProcessAllImage)]) 
+    dips(['PhotoshootName: ',PhotoshootName])
 end
