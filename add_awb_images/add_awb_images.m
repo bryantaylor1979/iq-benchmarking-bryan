@@ -10,5 +10,5 @@ function add_awb_images(ProcessAllImage)
     addpath(fullfile(WorkspacePath,'testchart_find','macbeth_chart','combined'))
     addpath(fullfile(WorkspacePath,'testchart_find','macbeth_chart','testing'))
     addpath(fullfile(WorkspacePath,'testchart_find','macbeth_chart','udayton'))
-    disp(['Enable: ',num2str(ProcessAllImage)])
+    disp(['Enable: ',num2str(ProcessAllImage)]) 
 end
