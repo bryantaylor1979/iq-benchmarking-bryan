@@ -6,6 +6,7 @@ classdef add_awb_images < handle
     methods
         function obj = add_awb_images(WorkspacePath,ProcessAllImage,PhotoshootName,ProjectName)
             ImageRootPath = fullfile(obj.ImageDatabaseRoot,ProjectName,'tobeadded');
+            JenkinsPath = fullfile(obj.ImageDatabaseRoot,ProjectName,'images');
             
             obj.add_all_paths(WorkspacePath);
             disp(['Enable: ',num2str(ProcessAllImage)]);
@@ -13,10 +14,17 @@ classdef add_awb_images < handle
             
             if ProcessAllImage == true
                 Names = listallimages(obj,ImageRootPath,obj.ImageType);
+                [SUCCESS,MESSAGE,~] = rmdir(JenkinsPath,'s');
+                if SUCCESS == 0
+                    warning(MESSAGE);
+                end
+                mkdir(fullfile(obj.ImageDatabaseRoot,ProjectName),'images');
+                obj.CopyDate2Folder(JenkinsPath,Names);
             else
                 Names = obj.listofimages(fullfile(ImageRootPath,PhotoshootName),obj.ImageType);
+                obj.CopyDate2Folder(JenkinsPath,Names);
             end
-            disp(Names)
+%             disp(Names)
         end
         function add_all_paths(obj,WorkspacePath)
             addpath(fullfile(WorkspacePath,'add_awb_images'));
@@ -57,6 +65,19 @@ classdef add_awb_images < handle
                         Names = [Names;NewNames];
                     end
                 end            
+        end
+        function CopyDate2Folder(obj,JenkinsPath,Names)
+            %%
+            x = max(size(Names))
+            for i = 1:x
+                source_filename = Names{i};
+                [~,filename,ext] = fileparts(source_filename);
+                destination_filename = fullfile(JenkinsPath,[filename,ext]);
+                [SUCCESS,MESSAGE,~] = copyfile(source_filename,destination_filename,'f');
+                if SUCCESS == 0
+                    warning(MESSAGE)
+                end
+            end
         end
     end
 end
