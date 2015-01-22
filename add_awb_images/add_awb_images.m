@@ -3,13 +3,13 @@ classdef add_awb_images < handle
         ImageDatabaseRoot = '/mnt/depart_share/ImageDatabase/';
     end
     methods
-        function add_awb_images(WorkspacePath,ProcessAllImage,PhotoshootName,ProjectName)
+        function obj = add_awb_images(WorkspacePath,ProcessAllImage,PhotoshootName,ProjectName)
             ImageRootPath = fullfile(obj.ImageDatabaseRoot,ProjectName,'tobeadded');
             
             obj.add_all_paths(WorkspacePath);
             
-            disp(['Enable: ',num2str(ProcessAllImage)]) 
-            disp(['PhotoshootName: ',PhotoshootName])
+            disp(['Enable: ',num2str(ProcessAllImage)]);
+            disp(['PhotoshootName: ',PhotoshootName]);
             
             Names = obj.listofimages(fullfile(ImageRootPath,PhotoshootName),'.jpg')
         end
