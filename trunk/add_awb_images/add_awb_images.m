@@ -12,7 +12,7 @@ classdef add_awb_images < handle
             disp(['PhotoshootName: ',PhotoshootName]);
             
             if ProcessAllImage == true
-                Names = listallimages(obj,ImageRootPath,obj.ImageType)
+                Names = listallimages(obj,ImageRootPath,obj.ImageType);
             else
                 Names = obj.listofimages(fullfile(ImageRootPath,PhotoshootName),obj.ImageType);
             end
@@ -46,8 +46,8 @@ classdef add_awb_images < handle
             Dirs = OBJ.names;
         end
         function Names = listallimages(obj,ImageRootPath,ImageType)
-                Dirs = obj.listofdirectories(ImageRootPath) 
-                x = max(size(Dirs))
+                Dirs = obj.listofdirectories(ImageRootPath);
+                x = max(size(Dirs));
                 Names = [];
                 for i = 1:x
                     NewNames = obj.listofimages(fullfile(ImageRootPath,Dirs{i}),ImageType);
