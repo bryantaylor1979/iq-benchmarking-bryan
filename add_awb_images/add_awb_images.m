@@ -10,7 +10,11 @@ classdef add_awb_images < handle
             
             obj.add_all_paths(WorkspacePath);
             disp(['Enable: ',num2str(ProcessAllImage)]);
-            disp(['PhotoshootName: ',PhotoshootName]);
+            if ProcessAllImage == true
+                disp(['PhotoshootName: All']);   
+            else
+                disp(['PhotoshootName: ',PhotoshootName]);
+            end
             
             if ProcessAllImage == true
                 Names = listallimages(obj,ImageRootPath,obj.ImageType);
@@ -68,7 +72,7 @@ classdef add_awb_images < handle
         end
         function CopyDate2Folder(obj,JenkinsPath,Names)
             %%
-            x = max(size(Names))
+            x = max(size(Names));
             for i = 1:x
                 source_filename = Names{i};
                 [~,filename,ext] = fileparts(source_filename);
@@ -76,6 +80,8 @@ classdef add_awb_images < handle
                 [SUCCESS,MESSAGE,~] = copyfile(source_filename,destination_filename,'f');
                 if SUCCESS == 0
                     warning(MESSAGE)
+                else
+                    disp(['Successfully copied: ',filename])
                 end
             end
         end
