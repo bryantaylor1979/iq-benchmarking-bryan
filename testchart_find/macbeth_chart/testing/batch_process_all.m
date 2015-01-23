@@ -31,6 +31,7 @@ function batch_process_all(DIR,images,mode)
         else
             disp([images{i},': FAIL'])
         end
+        drawnow;
     end
     disp(['Overall Pass Rate: ',num2str(round(passedcount/x*100)),'%'])
     toc
