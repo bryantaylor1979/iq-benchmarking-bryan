@@ -17,18 +17,18 @@ classdef add_awb_images < handle
             end
             
             if ProcessAllImage == true
-                Names = listallimages(obj,ImageRootPath,obj.ImageType);
+                [FullFileNames,FileNames] = listallimages(obj,ImageRootPath,obj.ImageType);
                 [SUCCESS,MESSAGE,~] = rmdir(JenkinsPath,'s');
                 if SUCCESS == 0
                     warning(MESSAGE);
                 end
                 mkdir(fullfile(obj.ImageDatabaseRoot,ProjectName),'images');
-                obj.CopyDate2Folder(JenkinsPath,Names);
+                obj.CopyDate2Folder(JenkinsPath,FullFileNames);
             else
-                Names = obj.listofimages(fullfile(ImageRootPath,PhotoshootName),obj.ImageType);
-                obj.CopyDate2Folder(JenkinsPath,Names);
+                [FullFileNames,FileNames] = obj.listofimages(fullfile(ImageRootPath,PhotoshootName),obj.ImageType);
+                obj.CopyDate2Folder(JenkinsPath,FullFileNames);
             end
-%             disp(Names)
+            batch_process_all(JenkinsPath,FileNames,'combined')
         end
         function add_all_paths(obj,WorkspacePath)
             addpath(fullfile(WorkspacePath,'add_awb_images'));
@@ -40,7 +40,7 @@ classdef add_awb_images < handle
             addpath(fullfile(WorkspacePath,'testchart_find','macbeth_chart','testing'));
             addpath(fullfile(WorkspacePath,'testchart_find','macbeth_chart','udayton'));            
         end
-        function Names = listofimages(obj,Path,ImageType)
+        function [FullFileNames,FileNames] = listofimages(obj,Path,ImageType)
             OBJ = ImageIO(  'Path',            Path, ...
                             'EnableFiltering', true, ...
                             'DirectoriesOnly', false, ...
@@ -48,8 +48,9 @@ classdef add_awb_images < handle
             OBJ.RUN();
             x = max(size(OBJ.names));
             for i = 1:x
-            	Names{i,1} = fullfile(Path,OBJ.names{i});
+            	FullFileNames{i,1} = fullfile(Path,OBJ.names{i});
             end
+            FileNames = OBJ.names;
         end
         function Dirs = listofdirectories(obj,Path)
             OBJ = ImageIO(  'Path',            Path, ...
@@ -57,18 +58,21 @@ classdef add_awb_images < handle
             OBJ.RUN();
             Dirs = OBJ.names;
         end
-        function Names = listallimages(obj,ImageRootPath,ImageType)
-                Dirs = obj.listofdirectories(ImageRootPath);
-                x = max(size(Dirs));
-                Names = [];
-                for i = 1:x
-                    NewNames = obj.listofimages(fullfile(ImageRootPath,Dirs{i}),ImageType);
-                    if i == 1
-                        Names = NewNames;
-                    else
-                        Names = [Names;NewNames];
-                    end
-                end            
+        function [FullFileNames,FileNames] = listallimages(obj,ImageRootPath,ImageType)
+            Dirs = obj.listofdirectories(ImageRootPath);
+            x = max(size(Dirs));
+            FileNames = [];
+            FullFileNames = [];
+            for i = 1:x
+                [NewFullFileNames,NewFileNames] = obj.listofimages(fullfile(ImageRootPath,Dirs{i}),ImageType);
+                if i == 1
+                    FileNames = NewFileNames;
+                    FullFileNames = NewFullFileNames;
+                else
+                    FileNames = [FileNames;NewFileNames];
+                    FullFileNames = [FullFileNames;NewFullFileNames];
+                end
+            end            
         end
         function CopyDate2Folder(obj,JenkinsPath,Names)
             %%
