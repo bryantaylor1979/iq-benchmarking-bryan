@@ -12,7 +12,11 @@ function batch_process_all(DIR,images,mode,pol)
         PASS = false;    
         end
         if PASS == true
-            disp([images{i},': PASS'])
+            if pol == true
+                disp([images{i},': PASS'])
+            else
+                disp([images{i},': FAIL'])
+            end
             passedcount = passedcount + 1; 
 
             % make results folder if it does not exist. 
@@ -31,7 +35,11 @@ function batch_process_all(DIR,images,mode,pol)
             writeImageTags(imagename,struct);
         else
             failcount = failcount + 1; 
-            disp([images{i},': FAIL'])
+            if pol == true
+                disp([images{i},': FAIL'])
+            else
+                disp([images{i},': PASS'])
+            end
         end
         drawnow;
     end
