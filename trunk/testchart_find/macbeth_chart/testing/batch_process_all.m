@@ -1,7 +1,8 @@
-function batch_process_all(DIR,images,mode)
+function batch_process_all(DIR,images,mode,pol)
     tic
     x = size(images,1);
     passedcount = 0;
+    failcount = 0;
     for i = 1:x
         imagename = fullfile(DIR,images{i});
         IMAGE = imread(imagename);
@@ -29,11 +30,16 @@ function batch_process_all(DIR,images,mode)
 
             writeImageTags(imagename,struct);
         else
+            failcount = failcount + 1; 
             disp([images{i},': FAIL'])
         end
         drawnow;
     end
-    disp(['Overall Pass Rate: ',num2str(round(passedcount/x*100)),'%'])
+    if pol == true
+        disp(['Postive (with macbeth) Overall Pass Rate: ',num2str(round(passedcount/x*100)),'%'])
+    else
+        disp(['Negative (without macbeth) Overall Pass Rate: ',num2str(round(failcount/x*100)),'%'])
+    end
     toc
     disp(' ')
     disp(' ')
