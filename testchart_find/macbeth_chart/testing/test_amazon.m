@@ -15,11 +15,11 @@ images = {  'macbeth_cwf.jpg'; ...
             'Mannaquin_6500_700lux.jpg'};
 
 DIR = fullfile(workspacepath,'images/withmacbeth/');
-batch_process_all(DIR,images,'amazon');
+batch_process_all(DIR,images,'amazon',true);
 
 images = {  '13Beach_3_2049Lux_5524K.jpg'; ...
             'Blue_Sky_580LUX_8394K.jpg'; ...
             'City_01.jpg'};
 
 DIR = fullfile(workspacepath,'images/withoutmacbeth/'); 
-batch_process_all(DIR,images,'amazon');
+batch_process_all(DIR,images,'amazon',false);
