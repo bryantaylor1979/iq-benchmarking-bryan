@@ -28,7 +28,7 @@ T = resort(T,ind); % sort in the same order as D
 
 if length(x)<18
     X=[];
-    disp(['CCFind ERROR: Could not find recurring shapes.\n']);
+    disp('CCFind ERROR: Could not find recurring shapes');
     return;
 end
 [~,C]=sort(sum(D(2:6,:),1));% closest 3 neighbors
@@ -118,7 +118,7 @@ end
 
 if max(s1,s2)<0
   X=[];
-  disp(['CCFind ERROR: Could not find a match.\n']);
+  disp('CCFind ERROR: Could not find a match');
   return;
 end
 
@@ -185,7 +185,7 @@ P = imregionalmax(conv2(max(Q,0),G,'same')); % find peaks
 %% various "checks" to eliminate unwanted ones
 [L,N]=bwlabel(Q>0); % Q>0 is a candidate for the shape we want
 
-disp(['Length of candiates:',num2str(length(x))])
+disp(['Length of candiates: ',num2str(length(x))])
 if length(x) > 100000
     error('potentially a flat scene. Too many possiblites')
 end
