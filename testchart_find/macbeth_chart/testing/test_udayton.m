@@ -9,7 +9,7 @@ classdef test_udayton < handle
             addpath(fullfile(workspacepath,'testing'));
             addpath(fullfile(workspacepath,'image_tags'));           
         end
-        function obj = test_combined(varargin)
+        function obj = test_udayton(varargin)
             x = size(varargin,2);
             for i = 1:2:x
                 obj.(varargin{i}) = varargin{i+1};
