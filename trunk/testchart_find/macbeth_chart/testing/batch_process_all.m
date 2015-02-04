@@ -17,12 +17,11 @@ function [summary] = findmacbeth(mode,imagename)
     try
         tic;
         [summary.PASS,struct] = feval(['findmacbeth_',mode],IMAGE);
-        summary.timetaken = toc;
     catch
         summary.PASS = false;
-        summary.timetaken = NaN;
         struct =[];
     end
+    summary.timetaken = toc;
     if summary.PASS == true            
         SaveVisualisation(IMAGE,imagename,struct);
         writeImageTags(imagename,struct);        
