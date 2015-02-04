@@ -20,8 +20,8 @@ classdef test_udayton < handle
             end
             
             images = imageset();
-            struct.withmacbeth    = obj.run_batch('withmacbeth',    images.with,    true);
-            struct.withoutmacbeth = obj.run_batch('withoutmacbeth', images.without, false);
+            struct.withmacbeth.summary    = obj.run_batch('withmacbeth',    images.with,    true);
+            struct.withoutmacbeth.summary = obj.run_batch('withoutmacbeth', images.without, false);
             
             save('summary.mat', '-struct', 'struct');
             struct2json(struct.withmacbeth,'withmacbeth_summary.json');
