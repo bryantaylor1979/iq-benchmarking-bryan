@@ -25,10 +25,12 @@ classdef test_combined < handle
             struct.withoutmacbeth.summary = obj.run_batch('withoutmacbeth', images.without, false);
             
             save('summary.mat', '-struct', 'struct');
-            struct2json(struct.withmacbeth,'withmacbeth_summary.json');
-            struct2xml(struct.withmacbeth, 'withmacbeth_summary.xml');
-            struct2json(struct.withoutmacbeth,'withoutmacbeth_summary.json');
-            struct2xml(struct.withoutmacbeth, 'withoutmacbeth_summary.xml');
+            
+            struct2.summary = struct.withmacbeth;
+            struct2json(struct2, 'withmacbeth_summary.json');
+            
+            struct2.summary = struct.withoutmacbeth;
+            struct2json(struct2, 'withoutmacbeth_summary.json');
         end
         function summary = run_batch(obj,type,images,pos)
             DIR = fullfile(obj.workspacepath,'images',type);
