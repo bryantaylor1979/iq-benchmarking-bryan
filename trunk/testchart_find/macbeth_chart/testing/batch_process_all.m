@@ -5,6 +5,7 @@ function batch_process_all(DIR,images,mode,pol)
     failcount = 0;
     for i = 1:x
         imagename = fullfile(DIR,images{i});
+        disp(['processing image: ',imagename])
         IMAGE = imread(imagename);
         try
         [PASS,struct] = feval(['findmacbeth_',mode],IMAGE);
@@ -41,6 +42,7 @@ function batch_process_all(DIR,images,mode,pol)
                 disp([images{i},': PASS'])
             end
         end
+        disp('')
         drawnow;
     end
     if pol == true

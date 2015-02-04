@@ -185,6 +185,10 @@ P = imregionalmax(conv2(max(Q,0),G,'same')); % find peaks
 %% various "checks" to eliminate unwanted ones
 [L,N]=bwlabel(Q>0); % Q>0 is a candidate for the shape we want
 
+disp(['Length of candiates:',num2str(length(x))])
+if length(x) > 100000
+    error('potentially a flat scene. Too many possiblites')
+end
 for n = 1:length(x);
 
     %% find Q>0 regions connected to peak
