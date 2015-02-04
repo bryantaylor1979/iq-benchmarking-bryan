@@ -22,6 +22,8 @@ classdef test_amazon < handle
             %%
             struct.withmacbeth.summary = obj.run_batch(    'withmacbeth',images.with,true);
             struct.withoutmacbeth.summary = obj.run_batch( 'withoutmacbeth',images.without,false);
+
+            save('summary.mat', '-struct', 'struct');
             
             %%
             struct2.summary = struct.withmacbeth;
