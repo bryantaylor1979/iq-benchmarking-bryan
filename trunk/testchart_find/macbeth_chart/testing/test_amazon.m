@@ -19,13 +19,12 @@ classdef test_amazon < handle
                 obj.AddPaths(obj.workspacepath);
             end
             images = imageset();
-            struct.withmacbeth = obj.run_batch('withmacbeth',images.with,true);
-            struct.withoutmacbeth = obj.run_batch('withoutmacbeth',images.without,false);
-            
-            struct2json(struct.withmacbeth,'withmacbeth_summary.json');
-            struct2xml(struct.withmacbeth, 'withmacbeth_summary.xml');
-            struct2json(struct.withoutmacbeth,'withoutmacbeth_summary.json');
-            struct2xml(struct.withoutmacbeth, 'withoutmacbeth_summary.xml');
+            struct.withmacbeth.summary = obj.run_batch(    'withmacbeth',images.with,true);
+            struct.withoutmacbeth.summary = obj.run_batch( 'withoutmacbeth',images.without,false); 
+            struct2json(struct.withmacbeth,        'withmacbeth_summary.json');
+            struct2xml(struct.withmacbeth,         'withmacbeth_summary.xml');
+            struct2json(struct.withoutmacbeth,     'withoutmacbeth_summary.json');
+            struct2xml(struct.withoutmacbeth,      'withoutmacbeth_summary.xml');
         end
         function summary = run_batch(obj,type,images,pos)
             DIR = fullfile(obj.workspacepath,'images',type);
