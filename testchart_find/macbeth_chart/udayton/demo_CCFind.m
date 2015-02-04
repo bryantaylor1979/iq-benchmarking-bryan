@@ -1,5 +1,5 @@
-% I = double(imread('macbeth_cwf.jpg'));
-I = double(imread('Mannaquin_6500_50lux.jpg'));
+%I = double(imread('macbeth_cwf.jpg'));
+I = double(imread('Blue_Sky_580LUX_8394K.jpg'));
 [X,C] = CCFind(imresize(I,1/3));
 X = X*3;
 if isempty(X)
