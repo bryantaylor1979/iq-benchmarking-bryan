@@ -21,12 +21,18 @@ classdef test_combined < handle
                 obj.AddPaths(obj.workspacepath);
             end
             images = imageset();
-            obj.run_batch('withmacbeth',images.with,true);
-            obj.run_batch('withoutmacbeth',images.without,false);
+            struct.withmacbeth = obj.run_batch('withmacbeth', images.with, true);
+            struct.withoutmacbeth = obj.run_batch('withoutmacbeth', images.without, false);
+            
+            save('summary.mat', '-struct', 'struct');
+            struct2json(struct.withmacbeth,'withmacbeth_summary.json');
+            struct2xml(struct.withmacbeth, 'withmacbeth_summary.xml');
+            struct2json(struct.withoutmacbeth,'withoutmacbeth_summary.json');
+            struct2xml(struct.withoutmacbeth, 'withoutmacbeth_summary.xml');
         end
-        function run_batch(obj,type,images,pos)
+        function summary = run_batch(obj,type,images,pos)
             DIR = fullfile(obj.workspacepath,'images',type);
-            batch_process_all(DIR,images,'combined',pos);            
+            summary = batch_process_all(DIR,images,'combined',pos);            
         end
     end
 end
