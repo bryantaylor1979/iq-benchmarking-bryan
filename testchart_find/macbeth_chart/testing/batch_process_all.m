@@ -16,7 +16,8 @@ function [summary] = findmacbeth(mode,imagename)
     summary.imagename = imagename;
     try
         tic;
-        [summary.PASS,struct] = feval(['findmacbeth_',mode],IMAGE);
+        [summary.PASS,struct,integrity] = feval(['findmacbeth_',mode],IMAGE);
+        disp(integrity)
     catch
         summary.PASS = false;
         struct =[];
