@@ -1,9 +1,9 @@
-function X=locatecc(Q,I)
+function X=locatecc(Q,I,flat_scene_threshold)
 
 % ColorChecker will be located on the peaks of Q.
 
 %% find Q peaks
-K = Qpeaks(Q); 
+K = Qpeaks(Q,flat_scene_threshold); 
 [x,y]=find(K>0);
 
 %% construct a distance matrix
@@ -171,8 +171,7 @@ return;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-function K=Qpeaks(Q)
-
+function K=Qpeaks(Q,flat_scene_threshold)
 %% initialize
 K=zeros(size(Q));
 tol = 3^2;
@@ -186,7 +185,7 @@ P = imregionalmax(conv2(max(Q,0),G,'same')); % find peaks
 [L,N]=bwlabel(Q>0); % Q>0 is a candidate for the shape we want
 
 disp(['Length of candiates: ',num2str(length(x))])
-if length(x) > 100000
+if length(x) > flat_scene_threshold
     error('potentially a flat scene. Too many possiblites')
 end
 for n = 1:length(x);

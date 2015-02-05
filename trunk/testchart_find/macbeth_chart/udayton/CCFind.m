@@ -1,4 +1,4 @@
-function [X,C] = CCFind(I)
+function [X,C] = CCFind(I,flat_scene_threshold)
 % CCFind.m will detect the Macbeth color checker inside an image. It will
 % return the coordinates for the center points of the squares.
 %
@@ -52,8 +52,8 @@ Q = locateshape(E0,W);
 disp('locate shape: TRUE')
 
 %% locate CC
- X = locatecc(Q,I);
- disp('locate macbeth: TRUE')
+X = locatecc(Q,I,flat_scene_threshold);
+disp('locate macbeth: TRUE')
 
 %% analyze CC
 C = analyzecc(X,I);
