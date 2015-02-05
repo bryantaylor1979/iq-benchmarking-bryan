@@ -29,6 +29,6 @@ if isempty(X)
     new_struct = [];
 else
     PASS = true;
-    integrity.nopatchesfound = size(X)
+    integrity.nopatchesfound = size(X,1);
     new_struct = udayton2generic(X);
 end
