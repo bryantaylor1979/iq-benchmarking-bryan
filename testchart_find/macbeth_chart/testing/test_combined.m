@@ -24,6 +24,7 @@ classdef test_combined < handle
             struct.withmacbeth.summary = obj.run_batch('withmacbeth', images.with, true);
             struct.withoutmacbeth.summary = obj.run_batch('withoutmacbeth', images.without, false);
             
+            disp(['Summary Location: ',fullpath(obj.workspacepath,'summary.mat')])
             save(fullpath(obj.workspacepath,'summary.mat'), '-struct', 'struct');
             
             struct2.summary = struct.withmacbeth;
@@ -31,6 +32,7 @@ classdef test_combined < handle
             
             struct2.summary = struct.withoutmacbeth;
             struct2json(struct2, fullpath(obj.workspacepath,'withoutmacbeth_summary.json'));
+            disp('write finished')
         end
         function summary = run_batch(obj,type,images,pos)
             DIR = fullfile(obj.workspacepath,'images',type);
