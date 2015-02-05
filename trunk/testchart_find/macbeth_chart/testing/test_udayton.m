@@ -23,13 +23,13 @@ classdef test_udayton < handle
             struct.withmacbeth    = obj.run_batch('withmacbeth',    images.with,    true);
             struct.withoutmacbeth = obj.run_batch('withoutmacbeth', images.without, false);
             
-            save('summary.mat', '-struct', 'struct');
+            save(fullpath(obj.workspacepath,'summary.mat'), '-struct', 'struct');
             
             struct2.summary = struct.withmacbeth;
-            struct2json(struct2, 'withmacbeth_summary.json');
+            struct2json(struct2, fullpath(obj.workspacepath,'withmacbeth_summary.json'));
             
             struct2.summary = struct.withoutmacbeth;
-            struct2json(struct2, 'withoutmacbeth_summary.json');
+            struct2json(struct2, fullpath(obj.workspacepath,'withoutmacbeth_summary.json'));
         end
         function summary = run_batch(obj,type,images,pos)
             DIR = fullfile(obj.workspacepath,'images',type);
