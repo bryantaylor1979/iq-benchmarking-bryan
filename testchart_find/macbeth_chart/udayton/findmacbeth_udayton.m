@@ -1,6 +1,8 @@
 function [PASS, new_struct, integrity] = findmacbeth_udayton(varargin)
 %%
 args.flat_scene_threshold = Inf;
+args.flat_scene_threshold = 100000;
+
 IMAGE = varargin{1};
 varargin = varargin(2:end);
 x = size(varargin,2);
