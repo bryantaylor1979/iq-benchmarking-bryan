@@ -6,6 +6,7 @@ function run_comparison(workspace)
     plot_radar(amazon,udayton,combined)
 end
 function structout = loadfile(filename)
+    disp(['loading: ',filename])
     struct = load(filename);
     try
     structout.maxtimetaken = max([ struct.withmacbeth.summary.overall.maxtimetaken, ...
@@ -22,6 +23,7 @@ function structout = loadfile(filename)
     structout.positive_averagetime =   struct.withmacbeth.overall.averagetimetaken;
     structout.negative_averagetime =   struct.withoutmacbeth.overall.averagetimetaken;        
     end
+    disp(' ')
 end
 function plot_radar(amazon,udayton,combined)
     gridspace = 5;
