@@ -1,4 +1,5 @@
 function run_comparison(workspace)
+    addpath(workspace);
     amazon = loadfile(   fullfile( workspace, 'amazon',   'summary.mat') )
     udayton = loadfile(  fullfile( workspace, 'udayton',  'summary.mat') );
     combined = loadfile( fullfile( workspace, 'combined', 'summary.mat') );
