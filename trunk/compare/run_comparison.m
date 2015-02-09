@@ -33,6 +33,7 @@ function plot_radar(amazon,udayton,combined)
              combined.maxtimetaken combined.postive_test_failrate combined.negative_test_failrate combined.positive_averagetime combined.negative_averagetime];
 
     % normalise against max error.
+    disp('create dataset') 
     for i = 1:5
         DATA(:,i) = DATA(:,i)./max(DATA(:,i));
     end
@@ -45,6 +46,7 @@ function plot_radar(amazon,udayton,combined)
 
     FontSize = 10;
     Color = [0,0,0];
+    disp('run plotter') 
     hfig = radarplot(  DATA, ...
                 Labels, ...
                 {'b','r','g'}, ...
