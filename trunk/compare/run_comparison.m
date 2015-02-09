@@ -3,7 +3,7 @@ function run_comparison(workspace)
     amazon = loadfile(   fullfile( workspace, 'amazon',   'summary.mat') );
     udayton = loadfile(  fullfile( workspace, 'udayton',  'summary.mat') );
     combined = loadfile( fullfile( workspace, 'combined', 'summary.mat') );
-    plot_radar(amazon,udayton,combined)
+    plot_radar(workspace,amazon,udayton,combined)
 end
 function structout = loadfile(filename)
     disp(['loading: ',filename])
@@ -25,7 +25,7 @@ function structout = loadfile(filename)
     end
     disp(' ')
 end
-function plot_radar(amazon,udayton,combined)
+function plot_radar(workspace,amazon,udayton,combined)
     disp('plotting radar') 
     gridspace = 5;
     DATA = [ amazon.maxtimetaken   amazon.postive_test_failrate   amazon.negative_test_failrate   amazon.positive_averagetime   amazon.negative_averagetime; ...
@@ -58,5 +58,5 @@ function plot_radar(amazon,udayton,combined)
     disp('completed plotter')
     h = legend({'amazon','udayton','combined'});
     set(h,'Location','North');
-    saveas(hfig, 'radar.jpg' );
+    saveas(hfig, fullfile(workspace,'radar.jpg') );
 end
