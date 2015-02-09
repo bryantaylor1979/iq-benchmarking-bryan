@@ -59,4 +59,5 @@ function plot_radar(workspace,amazon,udayton,combined)
     h = legend({'amazon','udayton','combined'});
     set(h,'Location','North');
     saveas(hfig, fullfile(workspace,'radar.jpg') );
+    disp('saved figure')
 end
