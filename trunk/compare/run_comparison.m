@@ -1,6 +1,6 @@
 function run_comparison(workspace)
     addpath(workspace);
-    amazon = loadfile(   fullfile( workspace, 'amazon',   'summary.mat') )
+    amazon = loadfile(   fullfile( workspace, 'amazon',   'summary.mat') );
     udayton = loadfile(  fullfile( workspace, 'udayton',  'summary.mat') );
     combined = loadfile( fullfile( workspace, 'combined', 'summary.mat') );
     plot_radar(amazon,udayton,combined)
