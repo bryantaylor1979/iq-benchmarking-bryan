@@ -1,2 +1,2 @@
 close all
-run_comparison()
+run_comparison(pwd)
