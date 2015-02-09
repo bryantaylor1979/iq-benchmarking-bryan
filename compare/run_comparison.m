@@ -1,7 +1,7 @@
-function run_comparison()
-    amazon = loadfile(   fullfile( 'amazon',   'summary.mat') )
-    udayton = loadfile(  fullfile( 'udayton',  'summary.mat') );
-    combined = loadfile( fullfile( 'combined', 'summary.mat') );
+function run_comparison(workspace)
+    amazon = loadfile(   fullfile( workspace, 'amazon',   'summary.mat') )
+    udayton = loadfile(  fullfile( workspace, 'udayton',  'summary.mat') );
+    combined = loadfile( fullfile( workspace, 'combined', 'summary.mat') );
     plot_radar(amazon,udayton,combined)
 end
 function structout = loadfile(filename)
