@@ -55,6 +55,7 @@ function plot_radar(amazon,udayton,combined)
                 gridspace, ...
                 FontSize, ...
                 Color);
+    disp('completed plotter')
     h = legend({'amazon','udayton','combined'});
     set(h,'Location','North');
     saveas(hfig, 'radar.jpg' );
