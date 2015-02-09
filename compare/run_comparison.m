@@ -26,6 +26,7 @@ function structout = loadfile(filename)
     disp(' ')
 end
 function plot_radar(amazon,udayton,combined)
+    disp('plotting radar') 
     gridspace = 5;
     DATA = [ amazon.maxtimetaken   amazon.postive_test_failrate   amazon.negative_test_failrate   amazon.positive_averagetime   amazon.negative_averagetime; ...
              udayton.maxtimetaken  udayton.postive_test_failrate  udayton.negative_test_failrate  udayton.positive_averagetime  udayton.negative_averagetime; ...
