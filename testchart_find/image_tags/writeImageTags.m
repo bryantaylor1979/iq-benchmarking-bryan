@@ -1,29 +1,31 @@
 function writeImageTags(imagename,macbeth)
-    % Written by: bryan taylor
+% Written by: Bryan Taylor
     PatchForAWBReg = 22;
-    EnableXML = true;
-    EnableJSON = true;
     ForceOverwrite = false;
 
     [path,filename,~] = fileparts(imagename);
-    xmlfilename = fullfile(path,[filename,'.xml']);
-    jsonfilename = fullfile(path,[filename,'.json']);
-    if exist(xmlfilename)
-       disp('reading existing xml file')
-       struct = xml2struct(xmlfilename);
+    
+    try
+       jsonfilename = fullfile(path,[filename,'.json']);
+    end
+    
+    if exist(jsonfilename)
+       disp('json file already exist. Reading file')
+       json = fileread(jsonfilename);
+       struct = json2struct2(json);
+       disp('complete')
     else
        struct = ImageInfo(); 
     end
+    
     if ForceOverwrite == true
        struct = ImageInfo();  
     end
-    struct.ImageInfo.Macbeth = macbeth;
-    struct.ImageInfo.GreyPatchCoords = macbeth.(['Patch',num2str(PatchForAWBReg)]);
     
-    if EnableXML == true
-       struct2xml(  struct, xmlfilename ) 
-    end
-    if EnableJSON == true
-       struct2json( struct, jsonfilename ) 
-    end
+    struct{1}.scene.macbeth = macbeth;
+    struct{1}.scene.grey_region_awb_test = macbeth{PatchForAWBReg};
+    json = struct2json2( struct );
+    h = fopen(jsonfilename,'w');
+    fprintf(h,json);
+    fclose(h);
 end
