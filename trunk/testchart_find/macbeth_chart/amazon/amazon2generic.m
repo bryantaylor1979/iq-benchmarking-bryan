@@ -1,8 +1,10 @@
 function new_struct = amazon2generic(struct, method)
       if strcmpi(method,'method1') 
       	  new_struct = method1(struct);
-      else
+      elseif strcmpi(method,'method2')  
       	  new_struct = method2(struct);
+      else
+          new_struct = method3(struct);
       end
 end
 function new_struct = method1(struct)
@@ -37,5 +39,22 @@ function new_struct = method2(struct)
         new_struct.(['Patch',num2str(i)]).UR.Y = struct(i).BoundedBox(2);
         new_struct.(['Patch',num2str(i)]).LL.X = struct(i).BoundedBox(3)-WIDTH; 
         new_struct.(['Patch',num2str(i)]).LL.Y = struct(i).BoundedBox(4);
+    end
+end
+function new_struct = method3(struct)
+    for i = 1:24
+        % LL 
+        new_struct{i} = [struct(i).BoundedBox(1), struct(i).BoundedBox(2)];
+        % LR
+        new_struct{i} = [struct(i).BoundedBox(3), struct(i).BoundedBox(4)];
+        
+        WIDTH = struct(i).BoundedBox(3) - struct(i).BoundedBox(1);
+        HEIGHT = struct(i).BoundedBox(3) - struct(i).BoundedBox(1);
+
+        % UR
+        new_struct{i} = [struct(i).BoundedBox(1)+WIDTH, struct(i).BoundedBox(2)];
+       
+        % LL
+        new_struct{i} = [struct(i).BoundedBox(3)-WIDTH, struct(i).BoundedBox(4)];       
     end
 end

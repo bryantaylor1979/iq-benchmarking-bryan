@@ -20,5 +20,5 @@ else
     PASS = true;
     integrity.nopatchesfound = size(struct,2);
     integrity.Fidality = accum;
-    new_struct = amazon2generic(struct,'method2');
+    new_struct = amazon2generic(struct,'method3');
 end
