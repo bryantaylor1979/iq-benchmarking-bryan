@@ -4,9 +4,9 @@ function struct = ImageInfo()
     DefaultNum = 0;
     switch standard
         case 0
-            struct = createRev1(DefaultNum);
+            struct = {createRev1(DefaultNum)};
         case 0.2
-            struct = createRev2(DefaultNum);
+            struct = {createRev2(DefaultNum)};
         otherwise
     end
 end
