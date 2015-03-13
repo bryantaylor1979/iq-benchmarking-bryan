@@ -1,7 +1,7 @@
 mcc -m findmacbeth_andTag findmacbeth_combined findmacbeth_amazon findmacbeth_udayton
 
 %% 
-version = 'v1';
+version = 'v2';
 root_path = '/var/lib/jenkins/jobs/findmacbeth_udayton/workspace/testing'
 dest_path = '/mnt/depart_share/HeatScore/add_images'
 
