@@ -43,18 +43,16 @@ function new_struct = method2(struct)
 end
 function new_struct = method3(struct)
     for i = 1:24
-        % LL 
-        new_struct{i} = [struct(i).BoundedBox(1), struct(i).BoundedBox(2)];
-        % LR
-        new_struct{i} = [struct(i).BoundedBox(3), struct(i).BoundedBox(4)];
-        
         WIDTH = struct(i).BoundedBox(3) - struct(i).BoundedBox(1);
         HEIGHT = struct(i).BoundedBox(3) - struct(i).BoundedBox(1);
 
+        % LL 
+        new_struct{i}{1} = [struct(i).BoundedBox(1),       struct(i).BoundedBox(2)];
         % UR
-        new_struct{i} = [struct(i).BoundedBox(1)+WIDTH, struct(i).BoundedBox(2)];
-       
-        % LL
-        new_struct{i} = [struct(i).BoundedBox(3)-WIDTH, struct(i).BoundedBox(4)];       
+        new_struct{i}{2} = [struct(i).BoundedBox(1)+WIDTH, struct(i).BoundedBox(2)];
+        % LR
+        new_struct{i}{3} = [struct(i).BoundedBox(3),       struct(i).BoundedBox(4)];
+        % UL
+        new_struct{i}{4} = [struct(i).BoundedBox(3)-WIDTH, struct(i).BoundedBox(4)];       
     end
 end
